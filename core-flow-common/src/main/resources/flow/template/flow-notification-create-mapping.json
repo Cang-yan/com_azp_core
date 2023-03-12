@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_NOTIFICATION_CREATE_MAPPING",
+  "type":"flow",
+  "title":"通过Mapping创建实体【通知管理】",
+  "params":[
+    { "name":"postMapper", "type":"com.azp.core.sys.model.NotificationPostMapper" }
+  ],
+  "results":[
+    { "name":"resultMapper", "type":"com.azp.core.sys.model.NotificationPostMapper" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_NOTIFICATION_CREATE_MAPPING",
+      "type":"event",
+      "reference":"FLOW_CODE_NOTIFICATION_CREATE_MAPPING",
+      "params":[
+        { "name":"postMapper", "type":"com.azp.core.sys.model.NotificationPostMapper" }
+      ],
+      "results":[
+        { "name":"resultMapper", "type":"com.azp.core.sys.model.NotificationPostMapper" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_NOTIFICATION_CREATE_MAPPING", "condition":"true" },
+    { "source":"FLOW_NODE_NOTIFICATION_CREATE_MAPPING", "target":"end", "condition":"true" }
+  ]
+}

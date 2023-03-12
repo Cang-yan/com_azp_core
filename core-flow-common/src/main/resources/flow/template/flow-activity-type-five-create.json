@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_ACTIVITY_TYPE_FIVE_CREATE",
+  "type":"flow",
+  "title":"创建实体【类型5活动管理】",
+  "params":[
+    { "name":"postEntity", "type":"com.azp.core.sys.model.ActivityTypeFive" }
+  ],
+  "results":[
+    { "name":"resultEntity", "type":"com.azp.core.sys.model.ActivityTypeFive" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ACTIVITY_TYPE_FIVE_CREATE",
+      "type":"event",
+      "reference":"FLOW_CODE_ACTIVITY_TYPE_FIVE_CREATE",
+      "params":[
+        { "name":"postEntity", "type":"com.azp.core.sys.model.ActivityTypeFive" }
+      ],
+      "results":[
+        { "name":"resultEntity", "type":"com.azp.core.sys.model.ActivityTypeFive" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ACTIVITY_TYPE_FIVE_CREATE", "condition":"true" },
+    { "source":"FLOW_NODE_ACTIVITY_TYPE_FIVE_CREATE", "target":"end", "condition":"true" }
+  ]
+}

@@ -1,0 +1,67 @@
+image: zyh2333/horsecoder-ci:1.0.5-arm64
+stages:
+- build
+- test
+workflow:
+  rules:
+    # Do not start pipeline for WIP/Draft commits
+    - if: $CI_COMMIT_TITLE =~ /^(WIP|Draft)/i
+      when: never
+
+    # MergeRequest-Pipelines workflow
+    # For merge requests create a pipeline.
+    - if: $CI_MERGE_REQUEST_IID || $CI_PIPELINE_SOURCE == "merge_request_event"
+
+    # For tags, create a pipeline.
+    - if: $CI_COMMIT_TAG
+
+    # For default branch create a pipeline (this includes on schedules, pushes, merges, etc.).
+    - if: $CI_COMMIT_BRANCH == "main"
+
+    # For other pipeline triggers
+    - if: $CI_PIPELINE_SOURCE =~ /^trigger|pipeline|web|api$/
+
+package:
+  tags:
+  - test-runner
+  stage: build
+  script:
+  - mvn clean package -DskipTests
+  cache:
+    key: $CI_COMMIT_REF_SLUG
+    paths:
+      - core-starter/target/core-starter-1.0.0-executable.jar
+      - core-test/target/generated-sources/java-templates/com/azp/core/test/app_version.json
+    policy: push
+
+# 版本检查
+test_job1:
+  tags:
+    - test-runner
+  stage: test
+  cache:
+    key: $CI_COMMIT_REF_SLUG
+    paths:
+      - core-test/target/generated-sources/java-templates/com/azp/core/test/app_version.json
+    policy: pull
+  script:
+    - cp /usr/local/test-version-0.0.1.jar ./
+    - cp core-test/target/generated-sources/java-templates/com/azp/core/test/app_version.json ./
+    - java -Dapp.group.id=com.azp -Dapp.artifact.id=core -jar /usr/local/test-version-0.0.1.jar
+
+# 测试及覆盖率
+test_job2:
+  tags:
+    - test-runner
+  stage: test
+  script:
+    - mvn clean install
+# 性能
+#test_job3:
+#  image: xxx
+#  stage: test
+#  script:
+#    - xxx
+
+
+

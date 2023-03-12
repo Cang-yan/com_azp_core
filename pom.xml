@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.9.RELEASE</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>com.azp</groupId>
+    <artifactId>core</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+    <name>app-core</name>
+    <description>服务：默认容灾组</description>
+
+    <modules>
+        <module>core-common</module>
+        <module>core-domain</module>
+        <module>core-integration</module>
+        <module>core-dal</module>
+        <module>core-core</module>
+        <module>core-flow</module>
+        <module>core-flow-common</module>
+        <module>core-flow-domain</module>
+        <module>core-web</module>
+        <module>core-starter</module>
+        <module>core-test</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <spring-boot-version>2.1.9.RELEASE</spring-boot-version>
+        <spring-cloud-version>2.1.3.RELEASE</spring-cloud-version>
+        <mybatis-spring-boot-version>1.3.2</mybatis-spring-boot-version>
+        <swagger-version>2.9.2</swagger-version>
+        <testng-version>6.14.3</testng-version>
+        <maria-version>2.4.0</maria-version>
+        <lombok-version>1.18.2</lombok-version>
+        <druid-version>1.1.10</druid-version>
+        <auth-version>0.1.14</auth-version>
+        <mapping-version>1.0.7</mapping-version>
+        <flow-version>0.2.5</flow-version>
+
+        <core-common-version>1.0.0</core-common-version>
+        <core-core-version>1.0.0</core-core-version>
+        <core-flow-version>1.0.0</core-flow-version>
+        <core-flow-common-version>1.0.0</core-flow-common-version>
+        <core-flow-domain-version>1.0.0</core-flow-domain-version>
+        <core-dal-version>1.0.0</core-dal-version>
+        <core-domain-version>1.0.0</core-domain-version>
+        <core-web-version>1.0.0</core-web-version>
+        <core-integration-version>1.0.0</core-integration-version>
+        <core-starter-version>1.0.0</core-starter-version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <dependency>
+                <groupId>com.azp</groupId>
+                <artifactId>core-common</artifactId>
+                <version>${core-common-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.azp</groupId>
+                <artifactId>core-domain</artifactId>
+                <version>${core-domain-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.azp</groupId>
+                <artifactId>core-integration</artifactId>
+                <version>${core-integration-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.azp</groupId>
+                <artifactId>core-dal</artifactId>
+                <version>${core-dal-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.azp</groupId>
+                <artifactId>core-core</artifactId>
+                <version>${core-core-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.azp</groupId>
+                <artifactId>core-flow</artifactId>
+                <version>${core-flow-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.azp</groupId>
+                <artifactId>core-flow-common</artifactId>
+                <version>${core-flow-common-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.azp</groupId>
+                <artifactId>core-flow-domain</artifactId>
+                <version>${core-flow-domain-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.azp</groupId>
+                <artifactId>core-web</artifactId>
+                <version>${core-web-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.azp</groupId>
+                <artifactId>core-starter</artifactId>
+                <version>${core-starter-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring-boot-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-redis</artifactId>
+                <version>${spring-boot-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis-spring-boot-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+                <version>${spring-cloud-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-openfeign</artifactId>
+                <version>${spring-cloud-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${spring-boot-version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.testng</groupId>
+                <artifactId>testng</artifactId>
+                <version>${testng-version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ch.vorburger.mariaDB4j</groupId>
+                <artifactId>mariaDB4j</artifactId>
+                <version>${maria-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cc.eamon.open</groupId>
+                <artifactId>mapping</artifactId>
+                <version>${mapping-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.horsecoder</groupId>
+                <artifactId>auth</artifactId>
+                <version>${auth-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cc.eamon.open</groupId>
+                <artifactId>flow-spring-boot-starter</artifactId>
+                <version>${flow-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.edu.whu.zhuyuhan</groupId>
+                <artifactId>scheduler-spring-boot-starter</artifactId>
+                <version>0.0.15</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <distributionManagement>
+        <repository>
+            <id>releases</id>
+            <name>releases</name>
+            <url>http://central.horsecoder.com:8081/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>snapshots</name>
+            <url>http://central.horsecoder.com:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <repositories>
+        <repository>
+            <id>releases</id>
+            <name>releases</name>
+            <url>http://central.horsecoder.com:8081/repository/maven-releases/</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+
+</project>

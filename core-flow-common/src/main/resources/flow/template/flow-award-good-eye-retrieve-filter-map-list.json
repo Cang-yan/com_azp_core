@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_AWARD_GOOD_EYE_RETRIEVE_FILTER_MAP_LIST",
+  "type":"flow",
+  "title":"通过过滤器获取【火眼金睛】简要列表",
+  "params":[
+    { "name":"filterMapper", "type":"com.azp.core.sys.model.AwardGoodEyeFilterMapper" }
+  ],
+  "results":[
+    { "name":"awardGoodEyeDetailMapList", "type":"List" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_AWARD_GOOD_EYE_RETRIEVE_FILTER_MAP_LIST",
+      "type":"event",
+      "reference":"FLOW_CODE_AWARD_GOOD_EYE_RETRIEVE_FILTER_MAP_LIST",
+      "params":[
+        { "name":"filterMapper", "type":"com.azp.core.sys.model.AwardGoodEyeFilterMapper" }
+      ],
+      "results":[
+        { "name":"awardGoodEyeDetailMapList", "type":"List" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_AWARD_GOOD_EYE_RETRIEVE_FILTER_MAP_LIST", "condition":"true" },
+    { "source":"FLOW_NODE_AWARD_GOOD_EYE_RETRIEVE_FILTER_MAP_LIST", "target":"end", "condition":"true" }
+  ]
+}

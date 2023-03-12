@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_LEVEL_UPDATE_MAPPING",
+  "type":"flow",
+  "title":"通过Mapping创建实体【等级管理】",
+  "params":[
+    { "name":"updateMapper", "type":"com.azp.core.sys.model.LevelUpdateMapper" }
+  ],
+  "results":[
+    { "name":"resultMapper", "type":"com.azp.core.sys.model.LevelUpdateMapper" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_LEVEL_UPDATE_MAPPING",
+      "type":"event",
+      "reference":"FLOW_CODE_LEVEL_UPDATE_MAPPING",
+      "params":[
+        { "name":"updateMapper", "type":"com.azp.core.sys.model.LevelUpdateMapper" }
+      ],
+      "results":[
+        { "name":"resultMapper", "type":"com.azp.core.sys.model.LevelUpdateMapper" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_LEVEL_UPDATE_MAPPING", "condition":"true" },
+    { "source":"FLOW_NODE_LEVEL_UPDATE_MAPPING", "target":"end", "condition":"true" }
+  ]
+}

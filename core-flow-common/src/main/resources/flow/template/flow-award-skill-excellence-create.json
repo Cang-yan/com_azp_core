@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_AWARD_SKILL_EXCELLENCE_CREATE",
+  "type":"flow",
+  "title":"创建实体【技能突出奖】",
+  "params":[
+    { "name":"postEntity", "type":"com.azp.core.sys.model.AwardSkillExcellence" }
+  ],
+  "results":[
+    { "name":"resultEntity", "type":"com.azp.core.sys.model.AwardSkillExcellence" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_AWARD_SKILL_EXCELLENCE_CREATE",
+      "type":"event",
+      "reference":"FLOW_CODE_AWARD_SKILL_EXCELLENCE_CREATE",
+      "params":[
+        { "name":"postEntity", "type":"com.azp.core.sys.model.AwardSkillExcellence" }
+      ],
+      "results":[
+        { "name":"resultEntity", "type":"com.azp.core.sys.model.AwardSkillExcellence" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_AWARD_SKILL_EXCELLENCE_CREATE", "condition":"true" },
+    { "source":"FLOW_NODE_AWARD_SKILL_EXCELLENCE_CREATE", "target":"end", "condition":"true" }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_ACTIVITY_TYPE_FOUR_USER_UPDATE_MAPPING",
+  "type":"flow",
+  "title":"通过Mapping创建实体【类型4活动-人管理】",
+  "params":[
+    { "name":"updateMapper", "type":"com.azp.core.sys.model.ActivityTypeFourUserUpdateMapper" }
+  ],
+  "results":[
+    { "name":"resultMapper", "type":"com.azp.core.sys.model.ActivityTypeFourUserUpdateMapper" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ACTIVITY_TYPE_FOUR_USER_UPDATE_MAPPING",
+      "type":"event",
+      "reference":"FLOW_CODE_ACTIVITY_TYPE_FOUR_USER_UPDATE_MAPPING",
+      "params":[
+        { "name":"updateMapper", "type":"com.azp.core.sys.model.ActivityTypeFourUserUpdateMapper" }
+      ],
+      "results":[
+        { "name":"resultMapper", "type":"com.azp.core.sys.model.ActivityTypeFourUserUpdateMapper" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ACTIVITY_TYPE_FOUR_USER_UPDATE_MAPPING", "condition":"true" },
+    { "source":"FLOW_NODE_ACTIVITY_TYPE_FOUR_USER_UPDATE_MAPPING", "target":"end", "condition":"true" }
+  ]
+}

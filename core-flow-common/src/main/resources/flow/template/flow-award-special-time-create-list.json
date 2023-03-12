@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_AWARD_SPECIAL_TIME_CREATE_LIST",
+  "type":"flow",
+  "title":"批量创建实体【特殊时节奖】",
+  "params":[
+    { "name":"postEntities", "type":"List" }
+  ],
+  "results":[
+    { "name":"resultEntities", "type":"List" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_AWARD_SPECIAL_TIME_CREATE_LIST",
+      "type":"event",
+      "reference":"FLOW_CODE_AWARD_SPECIAL_TIME_CREATE_LIST",
+      "params":[
+        { "name":"postEntities", "type":"List" }
+      ],
+      "results":[
+        { "name":"resultEntities", "type":"List" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_AWARD_SPECIAL_TIME_CREATE_LIST", "condition":"true" },
+    { "source":"FLOW_NODE_AWARD_SPECIAL_TIME_CREATE_LIST", "target":"end", "condition":"true" }
+  ]
+}

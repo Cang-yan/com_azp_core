@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_THREE_MONTH_EXCELLENT_RETRIEVE_COUNT_BY_FILTER",
+  "type":"flow",
+  "title":"通过过滤器获取【季度优秀奖】数量",
+  "params":[
+    { "name":"filterMapper", "type":"com.azp.core.sys.model.ThreeMonthExcellentFilterMapper" }
+  ],
+  "results":[
+    { "name":"threeMonthExcellentCount", "type":"Long" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_THREE_MONTH_EXCELLENT_RETRIEVE_COUNT_BY_FILTER",
+      "type":"event",
+      "reference":"FLOW_CODE_THREE_MONTH_EXCELLENT_RETRIEVE_COUNT_BY_FILTER",
+      "params":[
+        { "name":"filterMapper", "type":"com.azp.core.sys.model.ThreeMonthExcellentFilterMapper" }
+      ],
+      "results":[
+        { "name":"threeMonthExcellentCount", "type":"Long" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_THREE_MONTH_EXCELLENT_RETRIEVE_COUNT_BY_FILTER", "condition":"true" },
+    { "source":"FLOW_NODE_THREE_MONTH_EXCELLENT_RETRIEVE_COUNT_BY_FILTER", "target":"end", "condition":"true" }
+  ]
+}

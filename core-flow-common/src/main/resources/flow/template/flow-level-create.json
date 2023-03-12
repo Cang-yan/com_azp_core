@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_LEVEL_CREATE",
+  "type":"flow",
+  "title":"创建实体【等级管理】",
+  "params":[
+    { "name":"postEntity", "type":"com.azp.core.sys.model.Level" }
+  ],
+  "results":[
+    { "name":"resultEntity", "type":"com.azp.core.sys.model.Level" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_LEVEL_CREATE",
+      "type":"event",
+      "reference":"FLOW_CODE_LEVEL_CREATE",
+      "params":[
+        { "name":"postEntity", "type":"com.azp.core.sys.model.Level" }
+      ],
+      "results":[
+        { "name":"resultEntity", "type":"com.azp.core.sys.model.Level" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_LEVEL_CREATE", "condition":"true" },
+    { "source":"FLOW_NODE_LEVEL_CREATE", "target":"end", "condition":"true" }
+  ]
+}

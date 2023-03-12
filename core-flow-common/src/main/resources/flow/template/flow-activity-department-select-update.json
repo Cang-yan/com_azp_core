@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_ACTIVITY_DEPARTMENT_SELECT_UPDATE",
+  "type":"flow",
+  "title":"更新实体【活动部门选择管理】",
+  "params":[
+    { "name":"updateEntity", "type":"com.azp.core.sys.model.ActivityDepartmentSelect" }
+  ],
+  "results":[
+    { "name":"resultEntity", "type":"com.azp.core.sys.model.ActivityDepartmentSelect" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ACTIVITY_DEPARTMENT_SELECT_UPDATE",
+      "type":"event",
+      "reference":"FLOW_CODE_ACTIVITY_DEPARTMENT_SELECT_UPDATE",
+      "params":[
+        { "name":"updateEntity", "type":"com.azp.core.sys.model.ActivityDepartmentSelect" }
+      ],
+      "results":[
+        { "name":"resultEntity", "type":"com.azp.core.sys.model.ActivityDepartmentSelect" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ACTIVITY_DEPARTMENT_SELECT_UPDATE", "condition":"true" },
+    { "source":"FLOW_NODE_ACTIVITY_DEPARTMENT_SELECT_UPDATE", "target":"end", "condition":"true" }
+  ]
+}

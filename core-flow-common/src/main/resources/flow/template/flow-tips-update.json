@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_TIPS_UPDATE",
+  "type":"flow",
+  "title":"更新实体【小贴士管理】",
+  "params":[
+    { "name":"updateEntity", "type":"com.azp.core.sys.model.Tips" }
+  ],
+  "results":[
+    { "name":"resultEntity", "type":"com.azp.core.sys.model.Tips" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_TIPS_UPDATE",
+      "type":"event",
+      "reference":"FLOW_CODE_TIPS_UPDATE",
+      "params":[
+        { "name":"updateEntity", "type":"com.azp.core.sys.model.Tips" }
+      ],
+      "results":[
+        { "name":"resultEntity", "type":"com.azp.core.sys.model.Tips" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_TIPS_UPDATE", "condition":"true" },
+    { "source":"FLOW_NODE_TIPS_UPDATE", "target":"end", "condition":"true" }
+  ]
+}

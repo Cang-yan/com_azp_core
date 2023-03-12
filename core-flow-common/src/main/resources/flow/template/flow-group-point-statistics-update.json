@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_GROUP_POINT_STATISTICS_UPDATE",
+  "type":"flow",
+  "title":"更新实体【组队积分统计管理】",
+  "params":[
+    { "name":"updateEntity", "type":"com.azp.core.sys.model.GroupPointStatistics" }
+  ],
+  "results":[
+    { "name":"resultEntity", "type":"com.azp.core.sys.model.GroupPointStatistics" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_GROUP_POINT_STATISTICS_UPDATE",
+      "type":"event",
+      "reference":"FLOW_CODE_GROUP_POINT_STATISTICS_UPDATE",
+      "params":[
+        { "name":"updateEntity", "type":"com.azp.core.sys.model.GroupPointStatistics" }
+      ],
+      "results":[
+        { "name":"resultEntity", "type":"com.azp.core.sys.model.GroupPointStatistics" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_GROUP_POINT_STATISTICS_UPDATE", "condition":"true" },
+    { "source":"FLOW_NODE_GROUP_POINT_STATISTICS_UPDATE", "target":"end", "condition":"true" }
+  ]
+}

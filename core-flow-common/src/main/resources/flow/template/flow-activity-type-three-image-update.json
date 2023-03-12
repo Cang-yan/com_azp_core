@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_ACTIVITY_TYPE_THREE_IMAGE_UPDATE",
+  "type":"flow",
+  "title":"更新实体【活动类型3图片管理】",
+  "params":[
+    { "name":"updateEntity", "type":"com.azp.core.sys.model.ActivityTypeThreeImage" }
+  ],
+  "results":[
+    { "name":"resultEntity", "type":"com.azp.core.sys.model.ActivityTypeThreeImage" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ACTIVITY_TYPE_THREE_IMAGE_UPDATE",
+      "type":"event",
+      "reference":"FLOW_CODE_ACTIVITY_TYPE_THREE_IMAGE_UPDATE",
+      "params":[
+        { "name":"updateEntity", "type":"com.azp.core.sys.model.ActivityTypeThreeImage" }
+      ],
+      "results":[
+        { "name":"resultEntity", "type":"com.azp.core.sys.model.ActivityTypeThreeImage" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ACTIVITY_TYPE_THREE_IMAGE_UPDATE", "condition":"true" },
+    { "source":"FLOW_NODE_ACTIVITY_TYPE_THREE_IMAGE_UPDATE", "target":"end", "condition":"true" }
+  ]
+}

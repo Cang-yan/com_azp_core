@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_USER_POINT_STATISTICS_UPDATE",
+  "type":"flow",
+  "title":"更新实体【员工积分统计管理】",
+  "params":[
+    { "name":"updateEntity", "type":"com.azp.core.sys.model.UserPointStatistics" }
+  ],
+  "results":[
+    { "name":"resultEntity", "type":"com.azp.core.sys.model.UserPointStatistics" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_USER_POINT_STATISTICS_UPDATE",
+      "type":"event",
+      "reference":"FLOW_CODE_USER_POINT_STATISTICS_UPDATE",
+      "params":[
+        { "name":"updateEntity", "type":"com.azp.core.sys.model.UserPointStatistics" }
+      ],
+      "results":[
+        { "name":"resultEntity", "type":"com.azp.core.sys.model.UserPointStatistics" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_USER_POINT_STATISTICS_UPDATE", "condition":"true" },
+    { "source":"FLOW_NODE_USER_POINT_STATISTICS_UPDATE", "target":"end", "condition":"true" }
+  ]
+}

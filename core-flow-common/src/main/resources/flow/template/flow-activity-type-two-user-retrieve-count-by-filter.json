@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_ACTIVITY_TYPE_TWO_USER_RETRIEVE_COUNT_BY_FILTER",
+  "type":"flow",
+  "title":"通过过滤器获取【类型2活动-用户管理】数量",
+  "params":[
+    { "name":"filterMapper", "type":"com.azp.core.sys.model.ActivityTypeTwoUserFilterMapper" }
+  ],
+  "results":[
+    { "name":"activityTypeTwoUserCount", "type":"Long" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ACTIVITY_TYPE_TWO_USER_RETRIEVE_COUNT_BY_FILTER",
+      "type":"event",
+      "reference":"FLOW_CODE_ACTIVITY_TYPE_TWO_USER_RETRIEVE_COUNT_BY_FILTER",
+      "params":[
+        { "name":"filterMapper", "type":"com.azp.core.sys.model.ActivityTypeTwoUserFilterMapper" }
+      ],
+      "results":[
+        { "name":"activityTypeTwoUserCount", "type":"Long" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ACTIVITY_TYPE_TWO_USER_RETRIEVE_COUNT_BY_FILTER", "condition":"true" },
+    { "source":"FLOW_NODE_ACTIVITY_TYPE_TWO_USER_RETRIEVE_COUNT_BY_FILTER", "target":"end", "condition":"true" }
+  ]
+}

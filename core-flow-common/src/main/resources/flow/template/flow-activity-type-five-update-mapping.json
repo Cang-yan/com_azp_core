@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_ACTIVITY_TYPE_FIVE_UPDATE_MAPPING",
+  "type":"flow",
+  "title":"通过Mapping创建实体【类型5活动管理】",
+  "params":[
+    { "name":"updateMapper", "type":"com.azp.core.sys.model.ActivityTypeFiveUpdateMapper" }
+  ],
+  "results":[
+    { "name":"resultMapper", "type":"com.azp.core.sys.model.ActivityTypeFiveUpdateMapper" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ACTIVITY_TYPE_FIVE_UPDATE_MAPPING",
+      "type":"event",
+      "reference":"FLOW_CODE_ACTIVITY_TYPE_FIVE_UPDATE_MAPPING",
+      "params":[
+        { "name":"updateMapper", "type":"com.azp.core.sys.model.ActivityTypeFiveUpdateMapper" }
+      ],
+      "results":[
+        { "name":"resultMapper", "type":"com.azp.core.sys.model.ActivityTypeFiveUpdateMapper" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ACTIVITY_TYPE_FIVE_UPDATE_MAPPING", "condition":"true" },
+    { "source":"FLOW_NODE_ACTIVITY_TYPE_FIVE_UPDATE_MAPPING", "target":"end", "condition":"true" }
+  ]
+}

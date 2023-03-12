@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_GROUP_POINT_STATISTICS_CREATE_MAPPING",
+  "type":"flow",
+  "title":"通过Mapping创建实体【组队积分统计管理】",
+  "params":[
+    { "name":"postMapper", "type":"com.azp.core.sys.model.GroupPointStatisticsPostMapper" }
+  ],
+  "results":[
+    { "name":"resultMapper", "type":"com.azp.core.sys.model.GroupPointStatisticsPostMapper" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_GROUP_POINT_STATISTICS_CREATE_MAPPING",
+      "type":"event",
+      "reference":"FLOW_CODE_GROUP_POINT_STATISTICS_CREATE_MAPPING",
+      "params":[
+        { "name":"postMapper", "type":"com.azp.core.sys.model.GroupPointStatisticsPostMapper" }
+      ],
+      "results":[
+        { "name":"resultMapper", "type":"com.azp.core.sys.model.GroupPointStatisticsPostMapper" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_GROUP_POINT_STATISTICS_CREATE_MAPPING", "condition":"true" },
+    { "source":"FLOW_NODE_GROUP_POINT_STATISTICS_CREATE_MAPPING", "target":"end", "condition":"true" }
+  ]
+}

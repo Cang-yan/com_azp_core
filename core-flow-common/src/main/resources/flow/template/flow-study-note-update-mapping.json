@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_STUDY_NOTE_UPDATE_MAPPING",
+  "type":"flow",
+  "title":"通过Mapping创建实体【学习心得管理】",
+  "params":[
+    { "name":"updateMapper", "type":"com.azp.core.sys.model.StudyNoteUpdateMapper" }
+  ],
+  "results":[
+    { "name":"resultMapper", "type":"com.azp.core.sys.model.StudyNoteUpdateMapper" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_STUDY_NOTE_UPDATE_MAPPING",
+      "type":"event",
+      "reference":"FLOW_CODE_STUDY_NOTE_UPDATE_MAPPING",
+      "params":[
+        { "name":"updateMapper", "type":"com.azp.core.sys.model.StudyNoteUpdateMapper" }
+      ],
+      "results":[
+        { "name":"resultMapper", "type":"com.azp.core.sys.model.StudyNoteUpdateMapper" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_STUDY_NOTE_UPDATE_MAPPING", "condition":"true" },
+    { "source":"FLOW_NODE_STUDY_NOTE_UPDATE_MAPPING", "target":"end", "condition":"true" }
+  ]
+}

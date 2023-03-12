@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_USER_POINT_STATISTICS_UPDATE_MAPPING",
+  "type":"flow",
+  "title":"通过Mapping创建实体【员工积分统计管理】",
+  "params":[
+    { "name":"updateMapper", "type":"com.azp.core.sys.model.UserPointStatisticsUpdateMapper" }
+  ],
+  "results":[
+    { "name":"resultMapper", "type":"com.azp.core.sys.model.UserPointStatisticsUpdateMapper" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_USER_POINT_STATISTICS_UPDATE_MAPPING",
+      "type":"event",
+      "reference":"FLOW_CODE_USER_POINT_STATISTICS_UPDATE_MAPPING",
+      "params":[
+        { "name":"updateMapper", "type":"com.azp.core.sys.model.UserPointStatisticsUpdateMapper" }
+      ],
+      "results":[
+        { "name":"resultMapper", "type":"com.azp.core.sys.model.UserPointStatisticsUpdateMapper" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_USER_POINT_STATISTICS_UPDATE_MAPPING", "condition":"true" },
+    { "source":"FLOW_NODE_USER_POINT_STATISTICS_UPDATE_MAPPING", "target":"end", "condition":"true" }
+  ]
+}

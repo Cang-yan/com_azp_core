@@ -1,0 +1,14 @@
+FROM openjdk:8u201-jdk-alpine3.9
+#作者
+MAINTAINER Lucas <lucas@eamon.cc>
+#系统编码
+ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
+
+RUN mkdir -p /usr/local
+#应用构建成功后的jar文件被复制到镜像内
+ADD core-starter/target/core-starter-1.0.0-executable.jar /usr/local/core-1.0.0.jar
+
+# 运行容器后执行的第一条命令
+ENTRYPOINT ["java","-jar","/usr/local/core-1.0.0.jar","--spring.profiles.active=test"]
+#暴露端口
+EXPOSE 43355

@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_ACTIVITY_TYPE_FOUR_USER_POINT_UPDATE",
+  "type":"flow",
+  "title":"更新实体【类型4活动-用户-积分管理】",
+  "params":[
+    { "name":"updateEntity", "type":"com.azp.core.sys.model.ActivityTypeFourUserPoint" }
+  ],
+  "results":[
+    { "name":"resultEntity", "type":"com.azp.core.sys.model.ActivityTypeFourUserPoint" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ACTIVITY_TYPE_FOUR_USER_POINT_UPDATE",
+      "type":"event",
+      "reference":"FLOW_CODE_ACTIVITY_TYPE_FOUR_USER_POINT_UPDATE",
+      "params":[
+        { "name":"updateEntity", "type":"com.azp.core.sys.model.ActivityTypeFourUserPoint" }
+      ],
+      "results":[
+        { "name":"resultEntity", "type":"com.azp.core.sys.model.ActivityTypeFourUserPoint" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ACTIVITY_TYPE_FOUR_USER_POINT_UPDATE", "condition":"true" },
+    { "source":"FLOW_NODE_ACTIVITY_TYPE_FOUR_USER_POINT_UPDATE", "target":"end", "condition":"true" }
+  ]
+}

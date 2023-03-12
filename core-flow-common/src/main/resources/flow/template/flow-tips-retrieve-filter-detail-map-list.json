@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_TIPS_RETRIEVE_FILTER_DETAIL_MAP_LIST",
+  "type":"flow",
+  "title":"通过过滤器获取【小贴士管理】详情列表",
+  "params":[
+    { "name":"filterMapper", "type":"com.azp.core.sys.model.TipsFilterMapper" }
+  ],
+  "results":[
+    { "name":"tipsDetailMapList", "type":"List" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_TIPS_RETRIEVE_FILTER_DETAIL_MAP_LIST",
+      "type":"event",
+      "reference":"FLOW_CODE_TIPS_RETRIEVE_FILTER_DETAIL_MAP_LIST",
+      "params":[
+        { "name":"filterMapper", "type":"com.azp.core.sys.model.TipsFilterMapper" }
+      ],
+      "results":[
+        { "name":"tipsDetailMapList", "type":"List" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_TIPS_RETRIEVE_FILTER_DETAIL_MAP_LIST", "condition":"true" },
+    { "source":"FLOW_NODE_TIPS_RETRIEVE_FILTER_DETAIL_MAP_LIST", "target":"end", "condition":"true" }
+  ]
+}

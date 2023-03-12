@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: app-core
+  profiles:
+    active: prod
+  main:
+    allow-bean-definition-overriding: true
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: basic
+
+mybatis:
+  mapper-locations: classpath*:mapper/**/*.xml
+
+logging:
+  level:
+    com.azp: debug
+
+activity:
+  four:
+    start: 2022-04-01 00:00:00

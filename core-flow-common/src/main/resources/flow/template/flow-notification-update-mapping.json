@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_NOTIFICATION_UPDATE_MAPPING",
+  "type":"flow",
+  "title":"通过Mapping创建实体【通知管理】",
+  "params":[
+    { "name":"updateMapper", "type":"com.azp.core.sys.model.NotificationUpdateMapper" }
+  ],
+  "results":[
+    { "name":"resultMapper", "type":"com.azp.core.sys.model.NotificationUpdateMapper" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_NOTIFICATION_UPDATE_MAPPING",
+      "type":"event",
+      "reference":"FLOW_CODE_NOTIFICATION_UPDATE_MAPPING",
+      "params":[
+        { "name":"updateMapper", "type":"com.azp.core.sys.model.NotificationUpdateMapper" }
+      ],
+      "results":[
+        { "name":"resultMapper", "type":"com.azp.core.sys.model.NotificationUpdateMapper" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_NOTIFICATION_UPDATE_MAPPING", "condition":"true" },
+    { "source":"FLOW_NODE_NOTIFICATION_UPDATE_MAPPING", "target":"end", "condition":"true" }
+  ]
+}

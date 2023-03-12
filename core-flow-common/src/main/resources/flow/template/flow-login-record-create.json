@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_LOGIN_RECORD_CREATE",
+  "type":"flow",
+  "title":"创建实体【登录记录管理】",
+  "params":[
+    { "name":"postEntity", "type":"com.azp.core.sys.model.LoginRecord" }
+  ],
+  "results":[
+    { "name":"resultEntity", "type":"com.azp.core.sys.model.LoginRecord" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_LOGIN_RECORD_CREATE",
+      "type":"event",
+      "reference":"FLOW_CODE_LOGIN_RECORD_CREATE",
+      "params":[
+        { "name":"postEntity", "type":"com.azp.core.sys.model.LoginRecord" }
+      ],
+      "results":[
+        { "name":"resultEntity", "type":"com.azp.core.sys.model.LoginRecord" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_LOGIN_RECORD_CREATE", "condition":"true" },
+    { "source":"FLOW_NODE_LOGIN_RECORD_CREATE", "target":"end", "condition":"true" }
+  ]
+}

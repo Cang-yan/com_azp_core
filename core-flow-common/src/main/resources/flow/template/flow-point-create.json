@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_POINT_CREATE",
+  "type":"flow",
+  "title":"创建实体【积分管理】",
+  "params":[
+    { "name":"postEntity", "type":"com.azp.core.sys.model.Point" }
+  ],
+  "results":[
+    { "name":"resultEntity", "type":"com.azp.core.sys.model.Point" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_POINT_CREATE",
+      "type":"event",
+      "reference":"FLOW_CODE_POINT_CREATE",
+      "params":[
+        { "name":"postEntity", "type":"com.azp.core.sys.model.Point" }
+      ],
+      "results":[
+        { "name":"resultEntity", "type":"com.azp.core.sys.model.Point" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_POINT_CREATE", "condition":"true" },
+    { "source":"FLOW_NODE_POINT_CREATE", "target":"end", "condition":"true" }
+  ]
+}

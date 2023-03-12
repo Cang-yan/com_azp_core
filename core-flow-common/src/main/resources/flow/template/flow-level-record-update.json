@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_LEVEL_RECORD_UPDATE",
+  "type":"flow",
+  "title":"更新实体【等级排行管理】",
+  "params":[
+    { "name":"updateEntity", "type":"com.azp.core.sys.model.LevelRecord" }
+  ],
+  "results":[
+    { "name":"resultEntity", "type":"com.azp.core.sys.model.LevelRecord" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_LEVEL_RECORD_UPDATE",
+      "type":"event",
+      "reference":"FLOW_CODE_LEVEL_RECORD_UPDATE",
+      "params":[
+        { "name":"updateEntity", "type":"com.azp.core.sys.model.LevelRecord" }
+      ],
+      "results":[
+        { "name":"resultEntity", "type":"com.azp.core.sys.model.LevelRecord" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_LEVEL_RECORD_UPDATE", "condition":"true" },
+    { "source":"FLOW_NODE_LEVEL_RECORD_UPDATE", "target":"end", "condition":"true" }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_POINT_STORE_UPDATE",
+  "type":"flow",
+  "title":"更新实体【积分商城管理】",
+  "params":[
+    { "name":"updateEntity", "type":"com.azp.core.sys.model.PointStore" }
+  ],
+  "results":[
+    { "name":"resultEntity", "type":"com.azp.core.sys.model.PointStore" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_POINT_STORE_UPDATE",
+      "type":"event",
+      "reference":"FLOW_CODE_POINT_STORE_UPDATE",
+      "params":[
+        { "name":"updateEntity", "type":"com.azp.core.sys.model.PointStore" }
+      ],
+      "results":[
+        { "name":"resultEntity", "type":"com.azp.core.sys.model.PointStore" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_POINT_STORE_UPDATE", "condition":"true" },
+    { "source":"FLOW_NODE_POINT_STORE_UPDATE", "target":"end", "condition":"true" }
+  ]
+}

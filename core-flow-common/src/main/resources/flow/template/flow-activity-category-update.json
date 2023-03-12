@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_ACTIVITY_CATEGORY_UPDATE",
+  "type":"flow",
+  "title":"更新实体【活动大类管理】",
+  "params":[
+    { "name":"updateEntity", "type":"com.azp.core.sys.model.ActivityCategory" }
+  ],
+  "results":[
+    { "name":"resultEntity", "type":"com.azp.core.sys.model.ActivityCategory" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ACTIVITY_CATEGORY_UPDATE",
+      "type":"event",
+      "reference":"FLOW_CODE_ACTIVITY_CATEGORY_UPDATE",
+      "params":[
+        { "name":"updateEntity", "type":"com.azp.core.sys.model.ActivityCategory" }
+      ],
+      "results":[
+        { "name":"resultEntity", "type":"com.azp.core.sys.model.ActivityCategory" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ACTIVITY_CATEGORY_UPDATE", "condition":"true" },
+    { "source":"FLOW_NODE_ACTIVITY_CATEGORY_UPDATE", "target":"end", "condition":"true" }
+  ]
+}

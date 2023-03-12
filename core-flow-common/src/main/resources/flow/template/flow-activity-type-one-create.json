@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_ACTIVITY_TYPE_ONE_CREATE",
+  "type":"flow",
+  "title":"创建实体【类型1活动管理】",
+  "params":[
+    { "name":"postEntity", "type":"com.azp.core.sys.model.ActivityTypeOne" }
+  ],
+  "results":[
+    { "name":"resultEntity", "type":"com.azp.core.sys.model.ActivityTypeOne" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ACTIVITY_TYPE_ONE_CREATE",
+      "type":"event",
+      "reference":"FLOW_CODE_ACTIVITY_TYPE_ONE_CREATE",
+      "params":[
+        { "name":"postEntity", "type":"com.azp.core.sys.model.ActivityTypeOne" }
+      ],
+      "results":[
+        { "name":"resultEntity", "type":"com.azp.core.sys.model.ActivityTypeOne" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ACTIVITY_TYPE_ONE_CREATE", "condition":"true" },
+    { "source":"FLOW_NODE_ACTIVITY_TYPE_ONE_CREATE", "target":"end", "condition":"true" }
+  ]
+}

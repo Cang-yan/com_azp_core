@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_ACTIVITY_TYPE_SIX_UPDATE_MAPPING",
+  "type":"flow",
+  "title":"通过Mapping创建实体【类型6活动管理】",
+  "params":[
+    { "name":"updateMapper", "type":"com.azp.core.sys.model.ActivityTypeSixUpdateMapper" }
+  ],
+  "results":[
+    { "name":"resultMapper", "type":"com.azp.core.sys.model.ActivityTypeSixUpdateMapper" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ACTIVITY_TYPE_SIX_UPDATE_MAPPING",
+      "type":"event",
+      "reference":"FLOW_CODE_ACTIVITY_TYPE_SIX_UPDATE_MAPPING",
+      "params":[
+        { "name":"updateMapper", "type":"com.azp.core.sys.model.ActivityTypeSixUpdateMapper" }
+      ],
+      "results":[
+        { "name":"resultMapper", "type":"com.azp.core.sys.model.ActivityTypeSixUpdateMapper" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ACTIVITY_TYPE_SIX_UPDATE_MAPPING", "condition":"true" },
+    { "source":"FLOW_NODE_ACTIVITY_TYPE_SIX_UPDATE_MAPPING", "target":"end", "condition":"true" }
+  ]
+}

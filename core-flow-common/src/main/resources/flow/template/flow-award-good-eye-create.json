@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_AWARD_GOOD_EYE_CREATE",
+  "type":"flow",
+  "title":"创建实体【火眼金睛】",
+  "params":[
+    { "name":"postEntity", "type":"com.azp.core.sys.model.AwardGoodEye" }
+  ],
+  "results":[
+    { "name":"resultEntity", "type":"com.azp.core.sys.model.AwardGoodEye" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_AWARD_GOOD_EYE_CREATE",
+      "type":"event",
+      "reference":"FLOW_CODE_AWARD_GOOD_EYE_CREATE",
+      "params":[
+        { "name":"postEntity", "type":"com.azp.core.sys.model.AwardGoodEye" }
+      ],
+      "results":[
+        { "name":"resultEntity", "type":"com.azp.core.sys.model.AwardGoodEye" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_AWARD_GOOD_EYE_CREATE", "condition":"true" },
+    { "source":"FLOW_NODE_AWARD_GOOD_EYE_CREATE", "target":"end", "condition":"true" }
+  ]
+}

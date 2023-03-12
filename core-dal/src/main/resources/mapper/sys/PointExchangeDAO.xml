@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.azp.core.sys.datainterface.PointExchangeDAO">
+  <resultMap id="BaseResultMap" type="com.azp.core.sys.dataobject.PointExchangeDO">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="product_id" jdbcType="VARCHAR" property="productId" />
+    <result column="point_num" jdbcType="INTEGER" property="pointNum" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="exchange_num" jdbcType="INTEGER" property="exchangeNum" />
+    <result column="gmt_update" jdbcType="TIMESTAMP" property="gmtUpdate" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, product_id, point_num, user_id, exchange_num, gmt_update, gmt_create
+  </sql>
+  <select id="selectByExample" parameterType="com.azp.core.sys.dataobject.PointExchangeDOExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from sys_point_exchange
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="forUpdate != null and forUpdate == true">
+      for update
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_point_exchange
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from sys_point_exchange
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.azp.core.sys.dataobject.PointExchangeDOExample">
+    delete from sys_point_exchange
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.azp.core.sys.dataobject.PointExchangeDO">
+    insert into sys_point_exchange (id, product_id, point_num, 
+      user_id, exchange_num, gmt_update, 
+      gmt_create)
+    values (#{id,jdbcType=VARCHAR}, #{productId,jdbcType=VARCHAR}, #{pointNum,jdbcType=INTEGER}, 
+      #{userId,jdbcType=VARCHAR}, #{exchangeNum,jdbcType=INTEGER}, #{gmtUpdate,jdbcType=TIMESTAMP}, 
+      #{gmtCreate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.azp.core.sys.dataobject.PointExchangeDO">
+    insert into sys_point_exchange
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="productId != null">
+        product_id,
+      </if>
+      <if test="pointNum != null">
+        point_num,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="exchangeNum != null">
+        exchange_num,
+      </if>
+      <if test="gmtUpdate != null">
+        gmt_update,
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="productId != null">
+        #{productId,jdbcType=VARCHAR},
+      </if>
+      <if test="pointNum != null">
+        #{pointNum,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="exchangeNum != null">
+        #{exchangeNum,jdbcType=INTEGER},
+      </if>
+      <if test="gmtUpdate != null">
+        #{gmtUpdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtCreate != null">
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.azp.core.sys.dataobject.PointExchangeDOExample" resultType="java.lang.Long">
+    select count(*) from sys_point_exchange
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update sys_point_exchange
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.productId != null">
+        product_id = #{record.productId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pointNum != null">
+        point_num = #{record.pointNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.exchangeNum != null">
+        exchange_num = #{record.exchangeNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.gmtUpdate != null">
+        gmt_update = #{record.gmtUpdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.gmtCreate != null">
+        gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update sys_point_exchange
+    set id = #{record.id,jdbcType=VARCHAR},
+      product_id = #{record.productId,jdbcType=VARCHAR},
+      point_num = #{record.pointNum,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=VARCHAR},
+      exchange_num = #{record.exchangeNum,jdbcType=INTEGER},
+      gmt_update = #{record.gmtUpdate,jdbcType=TIMESTAMP},
+      gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.azp.core.sys.dataobject.PointExchangeDO">
+    update sys_point_exchange
+    <set>
+      <if test="productId != null">
+        product_id = #{productId,jdbcType=VARCHAR},
+      </if>
+      <if test="pointNum != null">
+        point_num = #{pointNum,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="exchangeNum != null">
+        exchange_num = #{exchangeNum,jdbcType=INTEGER},
+      </if>
+      <if test="gmtUpdate != null">
+        gmt_update = #{gmtUpdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.azp.core.sys.dataobject.PointExchangeDO">
+    update sys_point_exchange
+    set product_id = #{productId,jdbcType=VARCHAR},
+      point_num = #{pointNum,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=VARCHAR},
+      exchange_num = #{exchangeNum,jdbcType=INTEGER},
+      gmt_update = #{gmtUpdate,jdbcType=TIMESTAMP},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

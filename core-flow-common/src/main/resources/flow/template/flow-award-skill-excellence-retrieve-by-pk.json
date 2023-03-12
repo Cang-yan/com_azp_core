@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_AWARD_SKILL_EXCELLENCE_RETRIEVE_BY_PK",
+  "type":"flow",
+  "title":"通过主键获取【技能突出奖】实体",
+  "params":[
+    { "name":"key", "type":"String" }
+  ],
+  "results":[
+    { "name":"awardSkillExcellence", "type":"com.azp.core.sys.model.AwardSkillExcellence" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_AWARD_SKILL_EXCELLENCE_RETRIEVE_BY_PK",
+      "type":"event",
+      "reference":"FLOW_CODE_AWARD_SKILL_EXCELLENCE_RETRIEVE_BY_PK",
+      "params":[
+        { "name":"key", "type":"String" }
+      ],
+      "results":[
+        { "name":"awardSkillExcellence", "type":"com.azp.core.sys.model.AwardSkillExcellence" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_AWARD_SKILL_EXCELLENCE_RETRIEVE_BY_PK", "condition":"true" },
+    { "source":"FLOW_NODE_AWARD_SKILL_EXCELLENCE_RETRIEVE_BY_PK", "target":"end", "condition":"true" }
+  ]
+}

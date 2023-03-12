@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_ACTIVITY_TYPE_FOUR_PERIODS_UPDATE",
+  "type":"flow",
+  "title":"更新实体【活动4-期数管理】",
+  "params":[
+    { "name":"updateEntity", "type":"com.azp.core.sys.model.ActivityTypeFourPeriods" }
+  ],
+  "results":[
+    { "name":"resultEntity", "type":"com.azp.core.sys.model.ActivityTypeFourPeriods" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ACTIVITY_TYPE_FOUR_PERIODS_UPDATE",
+      "type":"event",
+      "reference":"FLOW_CODE_ACTIVITY_TYPE_FOUR_PERIODS_UPDATE",
+      "params":[
+        { "name":"updateEntity", "type":"com.azp.core.sys.model.ActivityTypeFourPeriods" }
+      ],
+      "results":[
+        { "name":"resultEntity", "type":"com.azp.core.sys.model.ActivityTypeFourPeriods" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ACTIVITY_TYPE_FOUR_PERIODS_UPDATE", "condition":"true" },
+    { "source":"FLOW_NODE_ACTIVITY_TYPE_FOUR_PERIODS_UPDATE", "target":"end", "condition":"true" }
+  ]
+}

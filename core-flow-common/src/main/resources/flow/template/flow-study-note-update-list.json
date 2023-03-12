@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_STUDY_NOTE_UPDATE_LIST",
+  "type":"flow",
+  "title":"批量创建实体【学习心得管理】",
+  "params":[
+    { "name":"updateEntities", "type":"List" }
+  ],
+  "results":[
+    { "name":"resultEntities", "type":"List" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_STUDY_NOTE_UPDATE_LIST",
+      "type":"event",
+      "reference":"FLOW_CODE_STUDY_NOTE_UPDATE_LIST",
+      "params":[
+        { "name":"updateEntities", "type":"List" }
+      ],
+      "results":[
+        { "name":"resultEntities", "type":"List" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_STUDY_NOTE_UPDATE_LIST", "condition":"true" },
+    { "source":"FLOW_NODE_STUDY_NOTE_UPDATE_LIST", "target":"end", "condition":"true" }
+  ]
+}

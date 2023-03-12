@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_AWARD_SPECIAL_TIME_UPDATE",
+  "type":"flow",
+  "title":"更新实体【特殊时节奖】",
+  "params":[
+    { "name":"updateEntity", "type":"com.azp.core.sys.model.AwardSpecialTime" }
+  ],
+  "results":[
+    { "name":"resultEntity", "type":"com.azp.core.sys.model.AwardSpecialTime" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_AWARD_SPECIAL_TIME_UPDATE",
+      "type":"event",
+      "reference":"FLOW_CODE_AWARD_SPECIAL_TIME_UPDATE",
+      "params":[
+        { "name":"updateEntity", "type":"com.azp.core.sys.model.AwardSpecialTime" }
+      ],
+      "results":[
+        { "name":"resultEntity", "type":"com.azp.core.sys.model.AwardSpecialTime" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_AWARD_SPECIAL_TIME_UPDATE", "condition":"true" },
+    { "source":"FLOW_NODE_AWARD_SPECIAL_TIME_UPDATE", "target":"end", "condition":"true" }
+  ]
+}

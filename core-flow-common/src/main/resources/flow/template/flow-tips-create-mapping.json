@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_TIPS_CREATE_MAPPING",
+  "type":"flow",
+  "title":"通过Mapping创建实体【小贴士管理】",
+  "params":[
+    { "name":"postMapper", "type":"com.azp.core.sys.model.TipsPostMapper" }
+  ],
+  "results":[
+    { "name":"resultMapper", "type":"com.azp.core.sys.model.TipsPostMapper" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_TIPS_CREATE_MAPPING",
+      "type":"event",
+      "reference":"FLOW_CODE_TIPS_CREATE_MAPPING",
+      "params":[
+        { "name":"postMapper", "type":"com.azp.core.sys.model.TipsPostMapper" }
+      ],
+      "results":[
+        { "name":"resultMapper", "type":"com.azp.core.sys.model.TipsPostMapper" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_TIPS_CREATE_MAPPING", "condition":"true" },
+    { "source":"FLOW_NODE_TIPS_CREATE_MAPPING", "target":"end", "condition":"true" }
+  ]
+}

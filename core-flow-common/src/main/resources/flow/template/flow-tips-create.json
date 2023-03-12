@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_TIPS_CREATE",
+  "type":"flow",
+  "title":"创建实体【小贴士管理】",
+  "params":[
+    { "name":"postEntity", "type":"com.azp.core.sys.model.Tips" }
+  ],
+  "results":[
+    { "name":"resultEntity", "type":"com.azp.core.sys.model.Tips" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_TIPS_CREATE",
+      "type":"event",
+      "reference":"FLOW_CODE_TIPS_CREATE",
+      "params":[
+        { "name":"postEntity", "type":"com.azp.core.sys.model.Tips" }
+      ],
+      "results":[
+        { "name":"resultEntity", "type":"com.azp.core.sys.model.Tips" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_TIPS_CREATE", "condition":"true" },
+    { "source":"FLOW_NODE_TIPS_CREATE", "target":"end", "condition":"true" }
+  ]
+}

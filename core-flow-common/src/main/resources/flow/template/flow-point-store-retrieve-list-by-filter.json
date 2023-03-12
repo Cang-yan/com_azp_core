@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_POINT_STORE_RETRIEVE_LIST_BY_FILTER",
+  "type":"flow",
+  "title":"通过过滤器获取【积分商城管理】实体列表",
+  "params":[
+    { "name":"filterMapper", "type":"com.azp.core.sys.model.PointStoreFilterMapper" }
+  ],
+  "results":[
+    { "name":"pointStoreList", "type":"List" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_POINT_STORE_RETRIEVE_LIST_BY_FILTER",
+      "type":"event",
+      "reference":"FLOW_CODE_POINT_STORE_RETRIEVE_LIST_BY_FILTER",
+      "params":[
+        { "name":"filterMapper", "type":"com.azp.core.sys.model.PointStoreFilterMapper" }
+      ],
+      "results":[
+        { "name":"pointStoreList", "type":"List" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_POINT_STORE_RETRIEVE_LIST_BY_FILTER", "condition":"true" },
+    { "source":"FLOW_NODE_POINT_STORE_RETRIEVE_LIST_BY_FILTER", "target":"end", "condition":"true" }
+  ]
+}

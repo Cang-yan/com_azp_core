@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_USE_INFO_RETRIEVE_FILTER_MAP_LIST",
+  "type":"flow",
+  "title":"通过过滤器获取【用户信息管理】简要列表",
+  "params":[
+    { "name":"filterMapper", "type":"com.azp.core.sys.model.UseInfoFilterMapper" }
+  ],
+  "results":[
+    { "name":"useInfoDetailMapList", "type":"List" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_USE_INFO_RETRIEVE_FILTER_MAP_LIST",
+      "type":"event",
+      "reference":"FLOW_CODE_USE_INFO_RETRIEVE_FILTER_MAP_LIST",
+      "params":[
+        { "name":"filterMapper", "type":"com.azp.core.sys.model.UseInfoFilterMapper" }
+      ],
+      "results":[
+        { "name":"useInfoDetailMapList", "type":"List" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_USE_INFO_RETRIEVE_FILTER_MAP_LIST", "condition":"true" },
+    { "source":"FLOW_NODE_USE_INFO_RETRIEVE_FILTER_MAP_LIST", "target":"end", "condition":"true" }
+  ]
+}

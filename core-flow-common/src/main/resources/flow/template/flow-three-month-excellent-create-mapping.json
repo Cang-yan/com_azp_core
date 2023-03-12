@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_THREE_MONTH_EXCELLENT_CREATE_MAPPING",
+  "type":"flow",
+  "title":"通过Mapping创建实体【季度优秀奖】",
+  "params":[
+    { "name":"postMapper", "type":"com.azp.core.sys.model.ThreeMonthExcellentPostMapper" }
+  ],
+  "results":[
+    { "name":"resultMapper", "type":"com.azp.core.sys.model.ThreeMonthExcellentPostMapper" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_THREE_MONTH_EXCELLENT_CREATE_MAPPING",
+      "type":"event",
+      "reference":"FLOW_CODE_THREE_MONTH_EXCELLENT_CREATE_MAPPING",
+      "params":[
+        { "name":"postMapper", "type":"com.azp.core.sys.model.ThreeMonthExcellentPostMapper" }
+      ],
+      "results":[
+        { "name":"resultMapper", "type":"com.azp.core.sys.model.ThreeMonthExcellentPostMapper" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_THREE_MONTH_EXCELLENT_CREATE_MAPPING", "condition":"true" },
+    { "source":"FLOW_NODE_THREE_MONTH_EXCELLENT_CREATE_MAPPING", "target":"end", "condition":"true" }
+  ]
+}

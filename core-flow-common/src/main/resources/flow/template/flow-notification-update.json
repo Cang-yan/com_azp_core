@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_NOTIFICATION_UPDATE",
+  "type":"flow",
+  "title":"更新实体【通知管理】",
+  "params":[
+    { "name":"updateEntity", "type":"com.azp.core.sys.model.Notification" }
+  ],
+  "results":[
+    { "name":"resultEntity", "type":"com.azp.core.sys.model.Notification" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_NOTIFICATION_UPDATE",
+      "type":"event",
+      "reference":"FLOW_CODE_NOTIFICATION_UPDATE",
+      "params":[
+        { "name":"updateEntity", "type":"com.azp.core.sys.model.Notification" }
+      ],
+      "results":[
+        { "name":"resultEntity", "type":"com.azp.core.sys.model.Notification" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_NOTIFICATION_UPDATE", "condition":"true" },
+    { "source":"FLOW_NODE_NOTIFICATION_UPDATE", "target":"end", "condition":"true" }
+  ]
+}

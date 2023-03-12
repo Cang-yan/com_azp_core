@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_POINT_STORE_CREATE_MAPPING",
+  "type":"flow",
+  "title":"通过Mapping创建实体【积分商城管理】",
+  "params":[
+    { "name":"postMapper", "type":"com.azp.core.sys.model.PointStorePostMapper" }
+  ],
+  "results":[
+    { "name":"resultMapper", "type":"com.azp.core.sys.model.PointStorePostMapper" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_POINT_STORE_CREATE_MAPPING",
+      "type":"event",
+      "reference":"FLOW_CODE_POINT_STORE_CREATE_MAPPING",
+      "params":[
+        { "name":"postMapper", "type":"com.azp.core.sys.model.PointStorePostMapper" }
+      ],
+      "results":[
+        { "name":"resultMapper", "type":"com.azp.core.sys.model.PointStorePostMapper" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_POINT_STORE_CREATE_MAPPING", "condition":"true" },
+    { "source":"FLOW_NODE_POINT_STORE_CREATE_MAPPING", "target":"end", "condition":"true" }
+  ]
+}

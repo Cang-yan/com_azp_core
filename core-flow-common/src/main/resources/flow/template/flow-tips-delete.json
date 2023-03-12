@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_TIPS_DELETE",
+  "type":"flow",
+  "title":"通过主键删除【小贴士管理】",
+  "params":[
+    { "name":"deleteKey", "type":"String" }
+  ],
+  "results":[
+    { "name":"deleteCount", "type":"Integer" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_TIPS_DELETE",
+      "type":"event",
+      "reference":"FLOW_CODE_TIPS_DELETE",
+      "params":[
+        { "name":"deleteKey", "type":"String" }
+      ],
+      "results":[
+        { "name":"deleteCount", "type":"Integer" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_TIPS_DELETE", "condition":"true" },
+    { "source":"FLOW_NODE_TIPS_DELETE", "target":"end", "condition":"true" }
+  ]
+}

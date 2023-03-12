@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_AWARD_SNOW_HEAT_UPDATE",
+  "type":"flow",
+  "title":"更新实体【雪中送炭】",
+  "params":[
+    { "name":"updateEntity", "type":"com.azp.core.sys.model.AwardSnowHeat" }
+  ],
+  "results":[
+    { "name":"resultEntity", "type":"com.azp.core.sys.model.AwardSnowHeat" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_AWARD_SNOW_HEAT_UPDATE",
+      "type":"event",
+      "reference":"FLOW_CODE_AWARD_SNOW_HEAT_UPDATE",
+      "params":[
+        { "name":"updateEntity", "type":"com.azp.core.sys.model.AwardSnowHeat" }
+      ],
+      "results":[
+        { "name":"resultEntity", "type":"com.azp.core.sys.model.AwardSnowHeat" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_AWARD_SNOW_HEAT_UPDATE", "condition":"true" },
+    { "source":"FLOW_NODE_AWARD_SNOW_HEAT_UPDATE", "target":"end", "condition":"true" }
+  ]
+}

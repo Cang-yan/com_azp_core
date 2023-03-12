@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_POINT_EXCHANGE_CREATE",
+  "type":"flow",
+  "title":"创建实体【积分兑换管理】",
+  "params":[
+    { "name":"postEntity", "type":"com.azp.core.sys.model.PointExchange" }
+  ],
+  "results":[
+    { "name":"resultEntity", "type":"com.azp.core.sys.model.PointExchange" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_POINT_EXCHANGE_CREATE",
+      "type":"event",
+      "reference":"FLOW_CODE_POINT_EXCHANGE_CREATE",
+      "params":[
+        { "name":"postEntity", "type":"com.azp.core.sys.model.PointExchange" }
+      ],
+      "results":[
+        { "name":"resultEntity", "type":"com.azp.core.sys.model.PointExchange" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_POINT_EXCHANGE_CREATE", "condition":"true" },
+    { "source":"FLOW_NODE_POINT_EXCHANGE_CREATE", "target":"end", "condition":"true" }
+  ]
+}

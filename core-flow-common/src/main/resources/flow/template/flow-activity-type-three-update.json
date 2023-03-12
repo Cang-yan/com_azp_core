@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_ACTIVITY_TYPE_THREE_UPDATE",
+  "type":"flow",
+  "title":"更新实体【类型3活动管理】",
+  "params":[
+    { "name":"updateEntity", "type":"com.azp.core.sys.model.ActivityTypeThree" }
+  ],
+  "results":[
+    { "name":"resultEntity", "type":"com.azp.core.sys.model.ActivityTypeThree" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ACTIVITY_TYPE_THREE_UPDATE",
+      "type":"event",
+      "reference":"FLOW_CODE_ACTIVITY_TYPE_THREE_UPDATE",
+      "params":[
+        { "name":"updateEntity", "type":"com.azp.core.sys.model.ActivityTypeThree" }
+      ],
+      "results":[
+        { "name":"resultEntity", "type":"com.azp.core.sys.model.ActivityTypeThree" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ACTIVITY_TYPE_THREE_UPDATE", "condition":"true" },
+    { "source":"FLOW_NODE_ACTIVITY_TYPE_THREE_UPDATE", "target":"end", "condition":"true" }
+  ]
+}

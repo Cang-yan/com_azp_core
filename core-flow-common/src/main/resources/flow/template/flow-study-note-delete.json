@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_STUDY_NOTE_DELETE",
+  "type":"flow",
+  "title":"通过主键删除【学习心得管理】",
+  "params":[
+    { "name":"deleteKey", "type":"String" }
+  ],
+  "results":[
+    { "name":"deleteCount", "type":"Integer" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_STUDY_NOTE_DELETE",
+      "type":"event",
+      "reference":"FLOW_CODE_STUDY_NOTE_DELETE",
+      "params":[
+        { "name":"deleteKey", "type":"String" }
+      ],
+      "results":[
+        { "name":"deleteCount", "type":"Integer" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_STUDY_NOTE_DELETE", "condition":"true" },
+    { "source":"FLOW_NODE_STUDY_NOTE_DELETE", "target":"end", "condition":"true" }
+  ]
+}

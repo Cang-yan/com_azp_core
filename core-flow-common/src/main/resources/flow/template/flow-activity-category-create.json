@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_ACTIVITY_CATEGORY_CREATE",
+  "type":"flow",
+  "title":"创建实体【活动大类管理】",
+  "params":[
+    { "name":"postEntity", "type":"com.azp.core.sys.model.ActivityCategory" }
+  ],
+  "results":[
+    { "name":"resultEntity", "type":"com.azp.core.sys.model.ActivityCategory" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ACTIVITY_CATEGORY_CREATE",
+      "type":"event",
+      "reference":"FLOW_CODE_ACTIVITY_CATEGORY_CREATE",
+      "params":[
+        { "name":"postEntity", "type":"com.azp.core.sys.model.ActivityCategory" }
+      ],
+      "results":[
+        { "name":"resultEntity", "type":"com.azp.core.sys.model.ActivityCategory" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ACTIVITY_CATEGORY_CREATE", "condition":"true" },
+    { "source":"FLOW_NODE_ACTIVITY_CATEGORY_CREATE", "target":"end", "condition":"true" }
+  ]
+}

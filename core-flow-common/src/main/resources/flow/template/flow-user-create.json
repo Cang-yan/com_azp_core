@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_USER_CREATE",
+  "type":"flow",
+  "title":"创建实体【用户管理】",
+  "params":[
+    { "name":"postEntity", "type":"com.azp.core.sys.model.User" }
+  ],
+  "results":[
+    { "name":"resultEntity", "type":"com.azp.core.sys.model.User" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_USER_CREATE",
+      "type":"event",
+      "reference":"FLOW_CODE_USER_CREATE",
+      "params":[
+        { "name":"postEntity", "type":"com.azp.core.sys.model.User" }
+      ],
+      "results":[
+        { "name":"resultEntity", "type":"com.azp.core.sys.model.User" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_USER_CREATE", "condition":"true" },
+    { "source":"FLOW_NODE_USER_CREATE", "target":"end", "condition":"true" }
+  ]
+}

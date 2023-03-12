@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_USER_CREATE_MAPPING",
+  "type":"flow",
+  "title":"通过Mapping创建实体【用户管理】",
+  "params":[
+    { "name":"postMapper", "type":"com.azp.core.sys.model.UserPostMapper" }
+  ],
+  "results":[
+    { "name":"resultMapper", "type":"com.azp.core.sys.model.UserPostMapper" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_USER_CREATE_MAPPING",
+      "type":"event",
+      "reference":"FLOW_CODE_USER_CREATE_MAPPING",
+      "params":[
+        { "name":"postMapper", "type":"com.azp.core.sys.model.UserPostMapper" }
+      ],
+      "results":[
+        { "name":"resultMapper", "type":"com.azp.core.sys.model.UserPostMapper" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_USER_CREATE_MAPPING", "condition":"true" },
+    { "source":"FLOW_NODE_USER_CREATE_MAPPING", "target":"end", "condition":"true" }
+  ]
+}

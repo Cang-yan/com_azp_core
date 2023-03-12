@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_LEVEL_RECORD_UPDATE_MAPPING",
+  "type":"flow",
+  "title":"通过Mapping创建实体【等级排行管理】",
+  "params":[
+    { "name":"updateMapper", "type":"com.azp.core.sys.model.LevelRecordUpdateMapper" }
+  ],
+  "results":[
+    { "name":"resultMapper", "type":"com.azp.core.sys.model.LevelRecordUpdateMapper" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_LEVEL_RECORD_UPDATE_MAPPING",
+      "type":"event",
+      "reference":"FLOW_CODE_LEVEL_RECORD_UPDATE_MAPPING",
+      "params":[
+        { "name":"updateMapper", "type":"com.azp.core.sys.model.LevelRecordUpdateMapper" }
+      ],
+      "results":[
+        { "name":"resultMapper", "type":"com.azp.core.sys.model.LevelRecordUpdateMapper" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_LEVEL_RECORD_UPDATE_MAPPING", "condition":"true" },
+    { "source":"FLOW_NODE_LEVEL_RECORD_UPDATE_MAPPING", "target":"end", "condition":"true" }
+  ]
+}

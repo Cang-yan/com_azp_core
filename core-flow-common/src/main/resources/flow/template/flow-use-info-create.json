@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_USE_INFO_CREATE",
+  "type":"flow",
+  "title":"创建实体【用户信息管理】",
+  "params":[
+    { "name":"postEntity", "type":"com.azp.core.sys.model.UseInfo" }
+  ],
+  "results":[
+    { "name":"resultEntity", "type":"com.azp.core.sys.model.UseInfo" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_USE_INFO_CREATE",
+      "type":"event",
+      "reference":"FLOW_CODE_USE_INFO_CREATE",
+      "params":[
+        { "name":"postEntity", "type":"com.azp.core.sys.model.UseInfo" }
+      ],
+      "results":[
+        { "name":"resultEntity", "type":"com.azp.core.sys.model.UseInfo" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_USE_INFO_CREATE", "condition":"true" },
+    { "source":"FLOW_NODE_USE_INFO_CREATE", "target":"end", "condition":"true" }
+  ]
+}

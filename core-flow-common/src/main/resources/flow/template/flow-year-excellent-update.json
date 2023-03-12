@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_YEAR_EXCELLENT_UPDATE",
+  "type":"flow",
+  "title":"更新实体【年度优秀奖】",
+  "params":[
+    { "name":"updateEntity", "type":"com.azp.core.sys.model.YearExcellent" }
+  ],
+  "results":[
+    { "name":"resultEntity", "type":"com.azp.core.sys.model.YearExcellent" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_YEAR_EXCELLENT_UPDATE",
+      "type":"event",
+      "reference":"FLOW_CODE_YEAR_EXCELLENT_UPDATE",
+      "params":[
+        { "name":"updateEntity", "type":"com.azp.core.sys.model.YearExcellent" }
+      ],
+      "results":[
+        { "name":"resultEntity", "type":"com.azp.core.sys.model.YearExcellent" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_YEAR_EXCELLENT_UPDATE", "condition":"true" },
+    { "source":"FLOW_NODE_YEAR_EXCELLENT_UPDATE", "target":"end", "condition":"true" }
+  ]
+}

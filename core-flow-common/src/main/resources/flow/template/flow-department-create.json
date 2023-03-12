@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_DEPARTMENT_CREATE",
+  "type":"flow",
+  "title":"创建实体【部门管理】",
+  "params":[
+    { "name":"postEntity", "type":"com.azp.core.sys.model.Department" }
+  ],
+  "results":[
+    { "name":"resultEntity", "type":"com.azp.core.sys.model.Department" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_DEPARTMENT_CREATE",
+      "type":"event",
+      "reference":"FLOW_CODE_DEPARTMENT_CREATE",
+      "params":[
+        { "name":"postEntity", "type":"com.azp.core.sys.model.Department" }
+      ],
+      "results":[
+        { "name":"resultEntity", "type":"com.azp.core.sys.model.Department" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_DEPARTMENT_CREATE", "condition":"true" },
+    { "source":"FLOW_NODE_DEPARTMENT_CREATE", "target":"end", "condition":"true" }
+  ]
+}

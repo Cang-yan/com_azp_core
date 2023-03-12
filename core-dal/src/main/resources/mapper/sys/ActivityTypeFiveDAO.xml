@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.azp.core.sys.datainterface.ActivityTypeFiveDAO">
+  <resultMap id="BaseResultMap" type="com.azp.core.sys.dataobject.ActivityTypeFiveDO">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="score" jdbcType="INTEGER" property="score" />
+    <result column="activity_sub_category" jdbcType="VARCHAR" property="activitySubCategory" />
+    <result column="point" jdbcType="INTEGER" property="point" />
+    <result column="duration" jdbcType="VARCHAR" property="duration" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="year" jdbcType="VARCHAR" property="year" />
+    <result column="month" jdbcType="VARCHAR" property="month" />
+    <result column="gmt_update" jdbcType="TIMESTAMP" property="gmtUpdate" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, user_id, score, activity_sub_category, point, duration, `type`, `year`, `month`, 
+    gmt_update, gmt_create
+  </sql>
+  <select id="selectByExample" parameterType="com.azp.core.sys.dataobject.ActivityTypeFiveDOExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from sys_activity_type_five
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="forUpdate != null and forUpdate == true">
+      for update
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_activity_type_five
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from sys_activity_type_five
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.azp.core.sys.dataobject.ActivityTypeFiveDOExample">
+    delete from sys_activity_type_five
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.azp.core.sys.dataobject.ActivityTypeFiveDO">
+    insert into sys_activity_type_five (id, user_id, score, 
+      activity_sub_category, point, duration, 
+      `type`, `year`, `month`, 
+      gmt_update, gmt_create)
+    values (#{id,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{score,jdbcType=INTEGER}, 
+      #{activitySubCategory,jdbcType=VARCHAR}, #{point,jdbcType=INTEGER}, #{duration,jdbcType=VARCHAR}, 
+      #{type,jdbcType=INTEGER}, #{year,jdbcType=VARCHAR}, #{month,jdbcType=VARCHAR}, 
+      #{gmtUpdate,jdbcType=TIMESTAMP}, #{gmtCreate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.azp.core.sys.dataobject.ActivityTypeFiveDO">
+    insert into sys_activity_type_five
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="score != null">
+        score,
+      </if>
+      <if test="activitySubCategory != null">
+        activity_sub_category,
+      </if>
+      <if test="point != null">
+        point,
+      </if>
+      <if test="duration != null">
+        duration,
+      </if>
+      <if test="type != null">
+        `type`,
+      </if>
+      <if test="year != null">
+        `year`,
+      </if>
+      <if test="month != null">
+        `month`,
+      </if>
+      <if test="gmtUpdate != null">
+        gmt_update,
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        #{score,jdbcType=INTEGER},
+      </if>
+      <if test="activitySubCategory != null">
+        #{activitySubCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="point != null">
+        #{point,jdbcType=INTEGER},
+      </if>
+      <if test="duration != null">
+        #{duration,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="year != null">
+        #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="month != null">
+        #{month,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtUpdate != null">
+        #{gmtUpdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtCreate != null">
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.azp.core.sys.dataobject.ActivityTypeFiveDOExample" resultType="java.lang.Long">
+    select count(*) from sys_activity_type_five
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update sys_activity_type_five
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.score != null">
+        score = #{record.score,jdbcType=INTEGER},
+      </if>
+      <if test="record.activitySubCategory != null">
+        activity_sub_category = #{record.activitySubCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="record.point != null">
+        point = #{record.point,jdbcType=INTEGER},
+      </if>
+      <if test="record.duration != null">
+        duration = #{record.duration,jdbcType=VARCHAR},
+      </if>
+      <if test="record.type != null">
+        `type` = #{record.type,jdbcType=INTEGER},
+      </if>
+      <if test="record.year != null">
+        `year` = #{record.year,jdbcType=VARCHAR},
+      </if>
+      <if test="record.month != null">
+        `month` = #{record.month,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gmtUpdate != null">
+        gmt_update = #{record.gmtUpdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.gmtCreate != null">
+        gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update sys_activity_type_five
+    set id = #{record.id,jdbcType=VARCHAR},
+      user_id = #{record.userId,jdbcType=VARCHAR},
+      score = #{record.score,jdbcType=INTEGER},
+      activity_sub_category = #{record.activitySubCategory,jdbcType=VARCHAR},
+      point = #{record.point,jdbcType=INTEGER},
+      duration = #{record.duration,jdbcType=VARCHAR},
+      `type` = #{record.type,jdbcType=INTEGER},
+      `year` = #{record.year,jdbcType=VARCHAR},
+      `month` = #{record.month,jdbcType=VARCHAR},
+      gmt_update = #{record.gmtUpdate,jdbcType=TIMESTAMP},
+      gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.azp.core.sys.dataobject.ActivityTypeFiveDO">
+    update sys_activity_type_five
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        score = #{score,jdbcType=INTEGER},
+      </if>
+      <if test="activitySubCategory != null">
+        activity_sub_category = #{activitySubCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="point != null">
+        point = #{point,jdbcType=INTEGER},
+      </if>
+      <if test="duration != null">
+        duration = #{duration,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        `type` = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="year != null">
+        `year` = #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="month != null">
+        `month` = #{month,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtUpdate != null">
+        gmt_update = #{gmtUpdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.azp.core.sys.dataobject.ActivityTypeFiveDO">
+    update sys_activity_type_five
+    set user_id = #{userId,jdbcType=VARCHAR},
+      score = #{score,jdbcType=INTEGER},
+      activity_sub_category = #{activitySubCategory,jdbcType=VARCHAR},
+      point = #{point,jdbcType=INTEGER},
+      duration = #{duration,jdbcType=VARCHAR},
+      `type` = #{type,jdbcType=INTEGER},
+      `year` = #{year,jdbcType=VARCHAR},
+      `month` = #{month,jdbcType=VARCHAR},
+      gmt_update = #{gmtUpdate,jdbcType=TIMESTAMP},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_USER_POINT_STATISTICS_RETRIEVE_LIST_BY_FILTER",
+  "type":"flow",
+  "title":"通过过滤器获取【员工积分统计管理】实体列表",
+  "params":[
+    { "name":"filterMapper", "type":"com.azp.core.sys.model.UserPointStatisticsFilterMapper" }
+  ],
+  "results":[
+    { "name":"userPointStatisticsList", "type":"List" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_USER_POINT_STATISTICS_RETRIEVE_LIST_BY_FILTER",
+      "type":"event",
+      "reference":"FLOW_CODE_USER_POINT_STATISTICS_RETRIEVE_LIST_BY_FILTER",
+      "params":[
+        { "name":"filterMapper", "type":"com.azp.core.sys.model.UserPointStatisticsFilterMapper" }
+      ],
+      "results":[
+        { "name":"userPointStatisticsList", "type":"List" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_USER_POINT_STATISTICS_RETRIEVE_LIST_BY_FILTER", "condition":"true" },
+    { "source":"FLOW_NODE_USER_POINT_STATISTICS_RETRIEVE_LIST_BY_FILTER", "target":"end", "condition":"true" }
+  ]
+}

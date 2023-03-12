@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_POINT_EXCHANGE_CREATE_MAPPING",
+  "type":"flow",
+  "title":"通过Mapping创建实体【积分兑换管理】",
+  "params":[
+    { "name":"postMapper", "type":"com.azp.core.sys.model.PointExchangePostMapper" }
+  ],
+  "results":[
+    { "name":"resultMapper", "type":"com.azp.core.sys.model.PointExchangePostMapper" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_POINT_EXCHANGE_CREATE_MAPPING",
+      "type":"event",
+      "reference":"FLOW_CODE_POINT_EXCHANGE_CREATE_MAPPING",
+      "params":[
+        { "name":"postMapper", "type":"com.azp.core.sys.model.PointExchangePostMapper" }
+      ],
+      "results":[
+        { "name":"resultMapper", "type":"com.azp.core.sys.model.PointExchangePostMapper" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_POINT_EXCHANGE_CREATE_MAPPING", "condition":"true" },
+    { "source":"FLOW_NODE_POINT_EXCHANGE_CREATE_MAPPING", "target":"end", "condition":"true" }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_AWARD_RAIN_AID_UPDATE",
+  "type":"flow",
+  "title":"更新实体【雨中送援】",
+  "params":[
+    { "name":"updateEntity", "type":"com.azp.core.sys.model.AwardRainAid" }
+  ],
+  "results":[
+    { "name":"resultEntity", "type":"com.azp.core.sys.model.AwardRainAid" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_AWARD_RAIN_AID_UPDATE",
+      "type":"event",
+      "reference":"FLOW_CODE_AWARD_RAIN_AID_UPDATE",
+      "params":[
+        { "name":"updateEntity", "type":"com.azp.core.sys.model.AwardRainAid" }
+      ],
+      "results":[
+        { "name":"resultEntity", "type":"com.azp.core.sys.model.AwardRainAid" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_AWARD_RAIN_AID_UPDATE", "condition":"true" },
+    { "source":"FLOW_NODE_AWARD_RAIN_AID_UPDATE", "target":"end", "condition":"true" }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "type": "version",
+  "versions": [
+    { "id": "APP", "version": "${project.version}", "description": "应用版本"},
+    { "id": "AUTH", "version": "${auth-version}", "description": "Auth鉴权中间件版本"},
+    { "id": "FLOW", "version": "${flow-version}", "description": "Flow流程引擎版本"},
+    { "id": "MAPPING", "version": "${mapping-version}", "description": "Mapping模型映射中间件版本"}
+  ]
+}

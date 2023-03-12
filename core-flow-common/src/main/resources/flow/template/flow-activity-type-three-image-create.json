@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_ACTIVITY_TYPE_THREE_IMAGE_CREATE",
+  "type":"flow",
+  "title":"创建实体【活动类型3图片管理】",
+  "params":[
+    { "name":"postEntity", "type":"com.azp.core.sys.model.ActivityTypeThreeImage" }
+  ],
+  "results":[
+    { "name":"resultEntity", "type":"com.azp.core.sys.model.ActivityTypeThreeImage" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ACTIVITY_TYPE_THREE_IMAGE_CREATE",
+      "type":"event",
+      "reference":"FLOW_CODE_ACTIVITY_TYPE_THREE_IMAGE_CREATE",
+      "params":[
+        { "name":"postEntity", "type":"com.azp.core.sys.model.ActivityTypeThreeImage" }
+      ],
+      "results":[
+        { "name":"resultEntity", "type":"com.azp.core.sys.model.ActivityTypeThreeImage" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ACTIVITY_TYPE_THREE_IMAGE_CREATE", "condition":"true" },
+    { "source":"FLOW_NODE_ACTIVITY_TYPE_THREE_IMAGE_CREATE", "target":"end", "condition":"true" }
+  ]
+}

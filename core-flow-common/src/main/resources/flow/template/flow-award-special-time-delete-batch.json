@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_AWARD_SPECIAL_TIME_DELETE_BATCH",
+  "type":"flow",
+  "title":"通过主键批量删除【特殊时节奖】",
+  "params":[
+    { "name":"deleteKeys", "type":"ArrayList" }
+  ],
+  "results":[
+    { "name":"deleteCount", "type":"Integer" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_AWARD_SPECIAL_TIME_DELETE_BATCH",
+      "type":"event",
+      "reference":"FLOW_CODE_AWARD_SPECIAL_TIME_DELETE_BATCH",
+      "params":[
+        { "name":"deleteKeys", "type":"ArrayList" }
+      ],
+      "results":[
+        { "name":"deleteCount", "type":"Integer" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_AWARD_SPECIAL_TIME_DELETE_BATCH", "condition":"true" },
+    { "source":"FLOW_NODE_AWARD_SPECIAL_TIME_DELETE_BATCH", "target":"end", "condition":"true" }
+  ]
+}

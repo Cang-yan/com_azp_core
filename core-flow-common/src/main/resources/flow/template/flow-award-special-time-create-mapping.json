@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_AWARD_SPECIAL_TIME_CREATE_MAPPING",
+  "type":"flow",
+  "title":"通过Mapping创建实体【特殊时节奖】",
+  "params":[
+    { "name":"postMapper", "type":"com.azp.core.sys.model.AwardSpecialTimePostMapper" }
+  ],
+  "results":[
+    { "name":"resultMapper", "type":"com.azp.core.sys.model.AwardSpecialTimePostMapper" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_AWARD_SPECIAL_TIME_CREATE_MAPPING",
+      "type":"event",
+      "reference":"FLOW_CODE_AWARD_SPECIAL_TIME_CREATE_MAPPING",
+      "params":[
+        { "name":"postMapper", "type":"com.azp.core.sys.model.AwardSpecialTimePostMapper" }
+      ],
+      "results":[
+        { "name":"resultMapper", "type":"com.azp.core.sys.model.AwardSpecialTimePostMapper" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_AWARD_SPECIAL_TIME_CREATE_MAPPING", "condition":"true" },
+    { "source":"FLOW_NODE_AWARD_SPECIAL_TIME_CREATE_MAPPING", "target":"end", "condition":"true" }
+  ]
+}

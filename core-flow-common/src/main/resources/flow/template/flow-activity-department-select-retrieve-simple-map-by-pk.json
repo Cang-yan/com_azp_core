@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_ACTIVITY_DEPARTMENT_SELECT_RETRIEVE_SIMPLE_MAP_BY_PK",
+  "type":"flow",
+  "title":"通过主键获取【活动部门选择管理】简要信息",
+  "params":[
+    { "name":"key", "type":"String" }
+  ],
+  "results":[
+    { "name":"activityDepartmentSelect", "type":"Map" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ACTIVITY_DEPARTMENT_SELECT_RETRIEVE_SIMPLE_MAP_BY_PK",
+      "type":"event",
+      "reference":"FLOW_CODE_ACTIVITY_DEPARTMENT_SELECT_RETRIEVE_SIMPLE_MAP_BY_PK",
+      "params":[
+        { "name":"key", "type":"String" }
+      ],
+      "results":[
+        { "name":"activityDepartmentSelect", "type":"Map" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ACTIVITY_DEPARTMENT_SELECT_RETRIEVE_SIMPLE_MAP_BY_PK", "condition":"true" },
+    { "source":"FLOW_NODE_ACTIVITY_DEPARTMENT_SELECT_RETRIEVE_SIMPLE_MAP_BY_PK", "target":"end", "condition":"true" }
+  ]
+}

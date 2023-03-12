@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_NOTIFICATION_CREATE",
+  "type":"flow",
+  "title":"创建实体【通知管理】",
+  "params":[
+    { "name":"postEntity", "type":"com.azp.core.sys.model.Notification" }
+  ],
+  "results":[
+    { "name":"resultEntity", "type":"com.azp.core.sys.model.Notification" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_NOTIFICATION_CREATE",
+      "type":"event",
+      "reference":"FLOW_CODE_NOTIFICATION_CREATE",
+      "params":[
+        { "name":"postEntity", "type":"com.azp.core.sys.model.Notification" }
+      ],
+      "results":[
+        { "name":"resultEntity", "type":"com.azp.core.sys.model.Notification" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_NOTIFICATION_CREATE", "condition":"true" },
+    { "source":"FLOW_NODE_NOTIFICATION_CREATE", "target":"end", "condition":"true" }
+  ]
+}

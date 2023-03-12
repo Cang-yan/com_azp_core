@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_ACTIVITY_TYPE_FOUR_UPDATE",
+  "type":"flow",
+  "title":"更新实体【类型4活动管理】",
+  "params":[
+    { "name":"updateEntity", "type":"com.azp.core.sys.model.ActivityTypeFour" }
+  ],
+  "results":[
+    { "name":"resultEntity", "type":"com.azp.core.sys.model.ActivityTypeFour" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ACTIVITY_TYPE_FOUR_UPDATE",
+      "type":"event",
+      "reference":"FLOW_CODE_ACTIVITY_TYPE_FOUR_UPDATE",
+      "params":[
+        { "name":"updateEntity", "type":"com.azp.core.sys.model.ActivityTypeFour" }
+      ],
+      "results":[
+        { "name":"resultEntity", "type":"com.azp.core.sys.model.ActivityTypeFour" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ACTIVITY_TYPE_FOUR_UPDATE", "condition":"true" },
+    { "source":"FLOW_NODE_ACTIVITY_TYPE_FOUR_UPDATE", "target":"end", "condition":"true" }
+  ]
+}

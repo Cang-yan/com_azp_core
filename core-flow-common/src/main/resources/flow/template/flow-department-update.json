@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_DEPARTMENT_UPDATE",
+  "type":"flow",
+  "title":"更新实体【部门管理】",
+  "params":[
+    { "name":"updateEntity", "type":"com.azp.core.sys.model.Department" }
+  ],
+  "results":[
+    { "name":"resultEntity", "type":"com.azp.core.sys.model.Department" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_DEPARTMENT_UPDATE",
+      "type":"event",
+      "reference":"FLOW_CODE_DEPARTMENT_UPDATE",
+      "params":[
+        { "name":"updateEntity", "type":"com.azp.core.sys.model.Department" }
+      ],
+      "results":[
+        { "name":"resultEntity", "type":"com.azp.core.sys.model.Department" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_DEPARTMENT_UPDATE", "condition":"true" },
+    { "source":"FLOW_NODE_DEPARTMENT_UPDATE", "target":"end", "condition":"true" }
+  ]
+}

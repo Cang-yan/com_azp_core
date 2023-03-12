@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_AWARD_SNOW_HEAT_RETRIEVE_FILTER_MAP_LIST",
+  "type":"flow",
+  "title":"通过过滤器获取【雪中送炭】简要列表",
+  "params":[
+    { "name":"filterMapper", "type":"com.azp.core.sys.model.AwardSnowHeatFilterMapper" }
+  ],
+  "results":[
+    { "name":"awardSnowHeatDetailMapList", "type":"List" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_AWARD_SNOW_HEAT_RETRIEVE_FILTER_MAP_LIST",
+      "type":"event",
+      "reference":"FLOW_CODE_AWARD_SNOW_HEAT_RETRIEVE_FILTER_MAP_LIST",
+      "params":[
+        { "name":"filterMapper", "type":"com.azp.core.sys.model.AwardSnowHeatFilterMapper" }
+      ],
+      "results":[
+        { "name":"awardSnowHeatDetailMapList", "type":"List" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_AWARD_SNOW_HEAT_RETRIEVE_FILTER_MAP_LIST", "condition":"true" },
+    { "source":"FLOW_NODE_AWARD_SNOW_HEAT_RETRIEVE_FILTER_MAP_LIST", "target":"end", "condition":"true" }
+  ]
+}

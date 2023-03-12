@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_ACTIVITY_TYPE_SIX_CREATE_MAPPING_LIST",
+  "type":"flow",
+  "title":"批量通过Mapping创建实体【类型6活动管理】",
+  "params":[
+    { "name":"postMapperList", "type":"List" }
+  ],
+  "results":[
+    { "name":"resultMapperList", "type":"List" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ACTIVITY_TYPE_SIX_CREATE_MAPPING_LIST",
+      "type":"event",
+      "reference":"FLOW_CODE_ACTIVITY_TYPE_SIX_CREATE_MAPPING_LIST",
+      "params":[
+        { "name":"postMapperList", "type":"List" }
+      ],
+      "results":[
+        { "name":"resultMapperList", "type":"List" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ACTIVITY_TYPE_SIX_CREATE_MAPPING_LIST", "condition":"true" },
+    { "source":"FLOW_NODE_ACTIVITY_TYPE_SIX_CREATE_MAPPING_LIST", "target":"end", "condition":"true" }
+  ]
+}

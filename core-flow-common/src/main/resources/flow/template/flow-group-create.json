@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_GROUP_CREATE",
+  "type":"flow",
+  "title":"创建实体【组别管理】",
+  "params":[
+    { "name":"postEntity", "type":"com.azp.core.sys.model.Group" }
+  ],
+  "results":[
+    { "name":"resultEntity", "type":"com.azp.core.sys.model.Group" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_GROUP_CREATE",
+      "type":"event",
+      "reference":"FLOW_CODE_GROUP_CREATE",
+      "params":[
+        { "name":"postEntity", "type":"com.azp.core.sys.model.Group" }
+      ],
+      "results":[
+        { "name":"resultEntity", "type":"com.azp.core.sys.model.Group" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_GROUP_CREATE", "condition":"true" },
+    { "source":"FLOW_NODE_GROUP_CREATE", "target":"end", "condition":"true" }
+  ]
+}

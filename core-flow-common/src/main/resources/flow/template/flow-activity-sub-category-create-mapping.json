@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_ACTIVITY_SUB_CATEGORY_CREATE_MAPPING",
+  "type":"flow",
+  "title":"通过Mapping创建实体【活动小类管理】",
+  "params":[
+    { "name":"postMapper", "type":"com.azp.core.sys.model.ActivitySubCategoryPostMapper" }
+  ],
+  "results":[
+    { "name":"resultMapper", "type":"com.azp.core.sys.model.ActivitySubCategoryPostMapper" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ACTIVITY_SUB_CATEGORY_CREATE_MAPPING",
+      "type":"event",
+      "reference":"FLOW_CODE_ACTIVITY_SUB_CATEGORY_CREATE_MAPPING",
+      "params":[
+        { "name":"postMapper", "type":"com.azp.core.sys.model.ActivitySubCategoryPostMapper" }
+      ],
+      "results":[
+        { "name":"resultMapper", "type":"com.azp.core.sys.model.ActivitySubCategoryPostMapper" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ACTIVITY_SUB_CATEGORY_CREATE_MAPPING", "condition":"true" },
+    { "source":"FLOW_NODE_ACTIVITY_SUB_CATEGORY_CREATE_MAPPING", "target":"end", "condition":"true" }
+  ]
+}

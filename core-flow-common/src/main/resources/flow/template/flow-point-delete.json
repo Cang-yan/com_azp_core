@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_POINT_DELETE",
+  "type":"flow",
+  "title":"通过主键删除【积分管理】",
+  "params":[
+    { "name":"deleteKey", "type":"String" }
+  ],
+  "results":[
+    { "name":"deleteCount", "type":"Integer" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_POINT_DELETE",
+      "type":"event",
+      "reference":"FLOW_CODE_POINT_DELETE",
+      "params":[
+        { "name":"deleteKey", "type":"String" }
+      ],
+      "results":[
+        { "name":"deleteCount", "type":"Integer" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_POINT_DELETE", "condition":"true" },
+    { "source":"FLOW_NODE_POINT_DELETE", "target":"end", "condition":"true" }
+  ]
+}

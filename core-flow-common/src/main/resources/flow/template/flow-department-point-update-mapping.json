@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_DEPARTMENT_POINT_UPDATE_MAPPING",
+  "type":"flow",
+  "title":"通过Mapping创建实体【部门积分管理】",
+  "params":[
+    { "name":"updateMapper", "type":"com.azp.core.sys.model.DepartmentPointUpdateMapper" }
+  ],
+  "results":[
+    { "name":"resultMapper", "type":"com.azp.core.sys.model.DepartmentPointUpdateMapper" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_DEPARTMENT_POINT_UPDATE_MAPPING",
+      "type":"event",
+      "reference":"FLOW_CODE_DEPARTMENT_POINT_UPDATE_MAPPING",
+      "params":[
+        { "name":"updateMapper", "type":"com.azp.core.sys.model.DepartmentPointUpdateMapper" }
+      ],
+      "results":[
+        { "name":"resultMapper", "type":"com.azp.core.sys.model.DepartmentPointUpdateMapper" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_DEPARTMENT_POINT_UPDATE_MAPPING", "condition":"true" },
+    { "source":"FLOW_NODE_DEPARTMENT_POINT_UPDATE_MAPPING", "target":"end", "condition":"true" }
+  ]
+}

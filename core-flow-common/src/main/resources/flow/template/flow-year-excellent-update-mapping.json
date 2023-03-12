@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_YEAR_EXCELLENT_UPDATE_MAPPING",
+  "type":"flow",
+  "title":"通过Mapping创建实体【年度优秀奖】",
+  "params":[
+    { "name":"updateMapper", "type":"com.azp.core.sys.model.YearExcellentUpdateMapper" }
+  ],
+  "results":[
+    { "name":"resultMapper", "type":"com.azp.core.sys.model.YearExcellentUpdateMapper" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_YEAR_EXCELLENT_UPDATE_MAPPING",
+      "type":"event",
+      "reference":"FLOW_CODE_YEAR_EXCELLENT_UPDATE_MAPPING",
+      "params":[
+        { "name":"updateMapper", "type":"com.azp.core.sys.model.YearExcellentUpdateMapper" }
+      ],
+      "results":[
+        { "name":"resultMapper", "type":"com.azp.core.sys.model.YearExcellentUpdateMapper" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_YEAR_EXCELLENT_UPDATE_MAPPING", "condition":"true" },
+    { "source":"FLOW_NODE_YEAR_EXCELLENT_UPDATE_MAPPING", "target":"end", "condition":"true" }
+  ]
+}

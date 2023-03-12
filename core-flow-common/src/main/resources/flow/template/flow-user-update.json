@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_USER_UPDATE",
+  "type":"flow",
+  "title":"更新实体【用户管理】",
+  "params":[
+    { "name":"updateEntity", "type":"com.azp.core.sys.model.User" }
+  ],
+  "results":[
+    { "name":"resultEntity", "type":"com.azp.core.sys.model.User" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_USER_UPDATE",
+      "type":"event",
+      "reference":"FLOW_CODE_USER_UPDATE",
+      "params":[
+        { "name":"updateEntity", "type":"com.azp.core.sys.model.User" }
+      ],
+      "results":[
+        { "name":"resultEntity", "type":"com.azp.core.sys.model.User" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_USER_UPDATE", "condition":"true" },
+    { "source":"FLOW_NODE_USER_UPDATE", "target":"end", "condition":"true" }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_AWARD_RAIN_AID_UPDATE_MAPPING",
+  "type":"flow",
+  "title":"通过Mapping创建实体【雨中送援】",
+  "params":[
+    { "name":"updateMapper", "type":"com.azp.core.sys.model.AwardRainAidUpdateMapper" }
+  ],
+  "results":[
+    { "name":"resultMapper", "type":"com.azp.core.sys.model.AwardRainAidUpdateMapper" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_AWARD_RAIN_AID_UPDATE_MAPPING",
+      "type":"event",
+      "reference":"FLOW_CODE_AWARD_RAIN_AID_UPDATE_MAPPING",
+      "params":[
+        { "name":"updateMapper", "type":"com.azp.core.sys.model.AwardRainAidUpdateMapper" }
+      ],
+      "results":[
+        { "name":"resultMapper", "type":"com.azp.core.sys.model.AwardRainAidUpdateMapper" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_AWARD_RAIN_AID_UPDATE_MAPPING", "condition":"true" },
+    { "source":"FLOW_NODE_AWARD_RAIN_AID_UPDATE_MAPPING", "target":"end", "condition":"true" }
+  ]
+}

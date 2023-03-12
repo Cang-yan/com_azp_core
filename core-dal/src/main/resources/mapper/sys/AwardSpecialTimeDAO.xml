@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.azp.core.sys.datainterface.AwardSpecialTimeDAO">
+  <resultMap id="BaseResultMap" type="com.azp.core.sys.dataobject.AwardSpecialTimeDO">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="year" jdbcType="VARCHAR" property="year" />
+    <result column="month" jdbcType="VARCHAR" property="month" />
+    <result column="department" jdbcType="VARCHAR" property="department" />
+    <result column="group" jdbcType="VARCHAR" property="group" />
+    <result column="user_code" jdbcType="VARCHAR" property="userCode" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="award_name" jdbcType="VARCHAR" property="awardName" />
+    <result column="award_reason" jdbcType="VARCHAR" property="awardReason" />
+    <result column="point" jdbcType="INTEGER" property="point" />
+    <result column="gmt_update" jdbcType="TIMESTAMP" property="gmtUpdate" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, `year`, `month`, department, `group`, user_code, user_name, `type`, award_name, 
+    award_reason, point, gmt_update, gmt_create
+  </sql>
+  <select id="selectByExample" parameterType="com.azp.core.sys.dataobject.AwardSpecialTimeDOExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from sys_award_special_time
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="forUpdate != null and forUpdate == true">
+      for update
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_award_special_time
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from sys_award_special_time
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.azp.core.sys.dataobject.AwardSpecialTimeDOExample">
+    delete from sys_award_special_time
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.azp.core.sys.dataobject.AwardSpecialTimeDO">
+    insert into sys_award_special_time (id, `year`, `month`, 
+      department, `group`, user_code, 
+      user_name, `type`, award_name, 
+      award_reason, point, gmt_update, 
+      gmt_create)
+    values (#{id,jdbcType=VARCHAR}, #{year,jdbcType=VARCHAR}, #{month,jdbcType=VARCHAR}, 
+      #{department,jdbcType=VARCHAR}, #{group,jdbcType=VARCHAR}, #{userCode,jdbcType=VARCHAR}, 
+      #{userName,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{awardName,jdbcType=VARCHAR}, 
+      #{awardReason,jdbcType=VARCHAR}, #{point,jdbcType=INTEGER}, #{gmtUpdate,jdbcType=TIMESTAMP}, 
+      #{gmtCreate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.azp.core.sys.dataobject.AwardSpecialTimeDO">
+    insert into sys_award_special_time
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="year != null">
+        `year`,
+      </if>
+      <if test="month != null">
+        `month`,
+      </if>
+      <if test="department != null">
+        department,
+      </if>
+      <if test="group != null">
+        `group`,
+      </if>
+      <if test="userCode != null">
+        user_code,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="type != null">
+        `type`,
+      </if>
+      <if test="awardName != null">
+        award_name,
+      </if>
+      <if test="awardReason != null">
+        award_reason,
+      </if>
+      <if test="point != null">
+        point,
+      </if>
+      <if test="gmtUpdate != null">
+        gmt_update,
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null">
+        #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="month != null">
+        #{month,jdbcType=VARCHAR},
+      </if>
+      <if test="department != null">
+        #{department,jdbcType=VARCHAR},
+      </if>
+      <if test="group != null">
+        #{group,jdbcType=VARCHAR},
+      </if>
+      <if test="userCode != null">
+        #{userCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="awardName != null">
+        #{awardName,jdbcType=VARCHAR},
+      </if>
+      <if test="awardReason != null">
+        #{awardReason,jdbcType=VARCHAR},
+      </if>
+      <if test="point != null">
+        #{point,jdbcType=INTEGER},
+      </if>
+      <if test="gmtUpdate != null">
+        #{gmtUpdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtCreate != null">
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.azp.core.sys.dataobject.AwardSpecialTimeDOExample" resultType="java.lang.Long">
+    select count(*) from sys_award_special_time
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update sys_award_special_time
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.year != null">
+        `year` = #{record.year,jdbcType=VARCHAR},
+      </if>
+      <if test="record.month != null">
+        `month` = #{record.month,jdbcType=VARCHAR},
+      </if>
+      <if test="record.department != null">
+        department = #{record.department,jdbcType=VARCHAR},
+      </if>
+      <if test="record.group != null">
+        `group` = #{record.group,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userCode != null">
+        user_code = #{record.userCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userName != null">
+        user_name = #{record.userName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.type != null">
+        `type` = #{record.type,jdbcType=VARCHAR},
+      </if>
+      <if test="record.awardName != null">
+        award_name = #{record.awardName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.awardReason != null">
+        award_reason = #{record.awardReason,jdbcType=VARCHAR},
+      </if>
+      <if test="record.point != null">
+        point = #{record.point,jdbcType=INTEGER},
+      </if>
+      <if test="record.gmtUpdate != null">
+        gmt_update = #{record.gmtUpdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.gmtCreate != null">
+        gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update sys_award_special_time
+    set id = #{record.id,jdbcType=VARCHAR},
+      `year` = #{record.year,jdbcType=VARCHAR},
+      `month` = #{record.month,jdbcType=VARCHAR},
+      department = #{record.department,jdbcType=VARCHAR},
+      `group` = #{record.group,jdbcType=VARCHAR},
+      user_code = #{record.userCode,jdbcType=VARCHAR},
+      user_name = #{record.userName,jdbcType=VARCHAR},
+      `type` = #{record.type,jdbcType=VARCHAR},
+      award_name = #{record.awardName,jdbcType=VARCHAR},
+      award_reason = #{record.awardReason,jdbcType=VARCHAR},
+      point = #{record.point,jdbcType=INTEGER},
+      gmt_update = #{record.gmtUpdate,jdbcType=TIMESTAMP},
+      gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.azp.core.sys.dataobject.AwardSpecialTimeDO">
+    update sys_award_special_time
+    <set>
+      <if test="year != null">
+        `year` = #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="month != null">
+        `month` = #{month,jdbcType=VARCHAR},
+      </if>
+      <if test="department != null">
+        department = #{department,jdbcType=VARCHAR},
+      </if>
+      <if test="group != null">
+        `group` = #{group,jdbcType=VARCHAR},
+      </if>
+      <if test="userCode != null">
+        user_code = #{userCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        `type` = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="awardName != null">
+        award_name = #{awardName,jdbcType=VARCHAR},
+      </if>
+      <if test="awardReason != null">
+        award_reason = #{awardReason,jdbcType=VARCHAR},
+      </if>
+      <if test="point != null">
+        point = #{point,jdbcType=INTEGER},
+      </if>
+      <if test="gmtUpdate != null">
+        gmt_update = #{gmtUpdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.azp.core.sys.dataobject.AwardSpecialTimeDO">
+    update sys_award_special_time
+    set `year` = #{year,jdbcType=VARCHAR},
+      `month` = #{month,jdbcType=VARCHAR},
+      department = #{department,jdbcType=VARCHAR},
+      `group` = #{group,jdbcType=VARCHAR},
+      user_code = #{userCode,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      `type` = #{type,jdbcType=VARCHAR},
+      award_name = #{awardName,jdbcType=VARCHAR},
+      award_reason = #{awardReason,jdbcType=VARCHAR},
+      point = #{point,jdbcType=INTEGER},
+      gmt_update = #{gmtUpdate,jdbcType=TIMESTAMP},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

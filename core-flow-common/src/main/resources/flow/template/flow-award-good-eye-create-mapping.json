@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_AWARD_GOOD_EYE_CREATE_MAPPING",
+  "type":"flow",
+  "title":"通过Mapping创建实体【火眼金睛】",
+  "params":[
+    { "name":"postMapper", "type":"com.azp.core.sys.model.AwardGoodEyePostMapper" }
+  ],
+  "results":[
+    { "name":"resultMapper", "type":"com.azp.core.sys.model.AwardGoodEyePostMapper" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_AWARD_GOOD_EYE_CREATE_MAPPING",
+      "type":"event",
+      "reference":"FLOW_CODE_AWARD_GOOD_EYE_CREATE_MAPPING",
+      "params":[
+        { "name":"postMapper", "type":"com.azp.core.sys.model.AwardGoodEyePostMapper" }
+      ],
+      "results":[
+        { "name":"resultMapper", "type":"com.azp.core.sys.model.AwardGoodEyePostMapper" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_AWARD_GOOD_EYE_CREATE_MAPPING", "condition":"true" },
+    { "source":"FLOW_NODE_AWARD_GOOD_EYE_CREATE_MAPPING", "target":"end", "condition":"true" }
+  ]
+}

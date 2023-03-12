@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_GROUP_UPDATE_MAPPING",
+  "type":"flow",
+  "title":"通过Mapping创建实体【组别管理】",
+  "params":[
+    { "name":"updateMapper", "type":"com.azp.core.sys.model.GroupUpdateMapper" }
+  ],
+  "results":[
+    { "name":"resultMapper", "type":"com.azp.core.sys.model.GroupUpdateMapper" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_GROUP_UPDATE_MAPPING",
+      "type":"event",
+      "reference":"FLOW_CODE_GROUP_UPDATE_MAPPING",
+      "params":[
+        { "name":"updateMapper", "type":"com.azp.core.sys.model.GroupUpdateMapper" }
+      ],
+      "results":[
+        { "name":"resultMapper", "type":"com.azp.core.sys.model.GroupUpdateMapper" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_GROUP_UPDATE_MAPPING", "condition":"true" },
+    { "source":"FLOW_NODE_GROUP_UPDATE_MAPPING", "target":"end", "condition":"true" }
+  ]
+}

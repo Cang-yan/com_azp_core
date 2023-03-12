@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_POINT_EXCHANGE_RETRIEVE_SIMPLE_MAP_BY_PK",
+  "type":"flow",
+  "title":"通过主键获取【积分兑换管理】简要信息",
+  "params":[
+    { "name":"key", "type":"String" }
+  ],
+  "results":[
+    { "name":"pointExchange", "type":"Map" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_POINT_EXCHANGE_RETRIEVE_SIMPLE_MAP_BY_PK",
+      "type":"event",
+      "reference":"FLOW_CODE_POINT_EXCHANGE_RETRIEVE_SIMPLE_MAP_BY_PK",
+      "params":[
+        { "name":"key", "type":"String" }
+      ],
+      "results":[
+        { "name":"pointExchange", "type":"Map" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_POINT_EXCHANGE_RETRIEVE_SIMPLE_MAP_BY_PK", "condition":"true" },
+    { "source":"FLOW_NODE_POINT_EXCHANGE_RETRIEVE_SIMPLE_MAP_BY_PK", "target":"end", "condition":"true" }
+  ]
+}

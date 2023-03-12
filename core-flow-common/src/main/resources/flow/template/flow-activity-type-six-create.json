@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_ACTIVITY_TYPE_SIX_CREATE",
+  "type":"flow",
+  "title":"创建实体【类型6活动管理】",
+  "params":[
+    { "name":"postEntity", "type":"com.azp.core.sys.model.ActivityTypeSix" }
+  ],
+  "results":[
+    { "name":"resultEntity", "type":"com.azp.core.sys.model.ActivityTypeSix" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ACTIVITY_TYPE_SIX_CREATE",
+      "type":"event",
+      "reference":"FLOW_CODE_ACTIVITY_TYPE_SIX_CREATE",
+      "params":[
+        { "name":"postEntity", "type":"com.azp.core.sys.model.ActivityTypeSix" }
+      ],
+      "results":[
+        { "name":"resultEntity", "type":"com.azp.core.sys.model.ActivityTypeSix" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ACTIVITY_TYPE_SIX_CREATE", "condition":"true" },
+    { "source":"FLOW_NODE_ACTIVITY_TYPE_SIX_CREATE", "target":"end", "condition":"true" }
+  ]
+}

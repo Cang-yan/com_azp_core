@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_GROUP_POINT_STATISTICS_RETRIEVE_FILTER_DETAIL_MAP_LIST",
+  "type":"flow",
+  "title":"通过过滤器获取【组队积分统计管理】详情列表",
+  "params":[
+    { "name":"filterMapper", "type":"com.azp.core.sys.model.GroupPointStatisticsFilterMapper" }
+  ],
+  "results":[
+    { "name":"groupPointStatisticsDetailMapList", "type":"List" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_GROUP_POINT_STATISTICS_RETRIEVE_FILTER_DETAIL_MAP_LIST",
+      "type":"event",
+      "reference":"FLOW_CODE_GROUP_POINT_STATISTICS_RETRIEVE_FILTER_DETAIL_MAP_LIST",
+      "params":[
+        { "name":"filterMapper", "type":"com.azp.core.sys.model.GroupPointStatisticsFilterMapper" }
+      ],
+      "results":[
+        { "name":"groupPointStatisticsDetailMapList", "type":"List" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_GROUP_POINT_STATISTICS_RETRIEVE_FILTER_DETAIL_MAP_LIST", "condition":"true" },
+    { "source":"FLOW_NODE_GROUP_POINT_STATISTICS_RETRIEVE_FILTER_DETAIL_MAP_LIST", "target":"end", "condition":"true" }
+  ]
+}

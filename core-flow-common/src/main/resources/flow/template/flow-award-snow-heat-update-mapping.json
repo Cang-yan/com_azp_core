@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_AWARD_SNOW_HEAT_UPDATE_MAPPING",
+  "type":"flow",
+  "title":"通过Mapping创建实体【雪中送炭】",
+  "params":[
+    { "name":"updateMapper", "type":"com.azp.core.sys.model.AwardSnowHeatUpdateMapper" }
+  ],
+  "results":[
+    { "name":"resultMapper", "type":"com.azp.core.sys.model.AwardSnowHeatUpdateMapper" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_AWARD_SNOW_HEAT_UPDATE_MAPPING",
+      "type":"event",
+      "reference":"FLOW_CODE_AWARD_SNOW_HEAT_UPDATE_MAPPING",
+      "params":[
+        { "name":"updateMapper", "type":"com.azp.core.sys.model.AwardSnowHeatUpdateMapper" }
+      ],
+      "results":[
+        { "name":"resultMapper", "type":"com.azp.core.sys.model.AwardSnowHeatUpdateMapper" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_AWARD_SNOW_HEAT_UPDATE_MAPPING", "condition":"true" },
+    { "source":"FLOW_NODE_AWARD_SNOW_HEAT_UPDATE_MAPPING", "target":"end", "condition":"true" }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_LOGIN_RECORD_UPDATE_MAPPING_LIST",
+  "type":"flow",
+  "title":"批量通过Mapping创建实体【登录记录管理】",
+  "params":[
+    { "name":"updateMappingList", "type":"List" }
+  ],
+  "results":[
+    { "name":"resultMapperList", "type":"List" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_LOGIN_RECORD_UPDATE_MAPPING_LIST",
+      "type":"event",
+      "reference":"FLOW_CODE_LOGIN_RECORD_UPDATE_MAPPING_LIST",
+      "params":[
+        { "name":"updateMappingList", "type":"List" }
+      ],
+      "results":[
+        { "name":"resultMapperList", "type":"List" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_LOGIN_RECORD_UPDATE_MAPPING_LIST", "condition":"true" },
+    { "source":"FLOW_NODE_LOGIN_RECORD_UPDATE_MAPPING_LIST", "target":"end", "condition":"true" }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_AWARD_RAIN_AID_RETRIEVE_LIST_BY_FILTER",
+  "type":"flow",
+  "title":"通过过滤器获取【雨中送援】实体列表",
+  "params":[
+    { "name":"filterMapper", "type":"com.azp.core.sys.model.AwardRainAidFilterMapper" }
+  ],
+  "results":[
+    { "name":"awardRainAidList", "type":"List" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_AWARD_RAIN_AID_RETRIEVE_LIST_BY_FILTER",
+      "type":"event",
+      "reference":"FLOW_CODE_AWARD_RAIN_AID_RETRIEVE_LIST_BY_FILTER",
+      "params":[
+        { "name":"filterMapper", "type":"com.azp.core.sys.model.AwardRainAidFilterMapper" }
+      ],
+      "results":[
+        { "name":"awardRainAidList", "type":"List" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_AWARD_RAIN_AID_RETRIEVE_LIST_BY_FILTER", "condition":"true" },
+    { "source":"FLOW_NODE_AWARD_RAIN_AID_RETRIEVE_LIST_BY_FILTER", "target":"end", "condition":"true" }
+  ]
+}

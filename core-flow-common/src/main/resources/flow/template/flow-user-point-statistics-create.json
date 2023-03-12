@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_USER_POINT_STATISTICS_CREATE",
+  "type":"flow",
+  "title":"创建实体【员工积分统计管理】",
+  "params":[
+    { "name":"postEntity", "type":"com.azp.core.sys.model.UserPointStatistics" }
+  ],
+  "results":[
+    { "name":"resultEntity", "type":"com.azp.core.sys.model.UserPointStatistics" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_USER_POINT_STATISTICS_CREATE",
+      "type":"event",
+      "reference":"FLOW_CODE_USER_POINT_STATISTICS_CREATE",
+      "params":[
+        { "name":"postEntity", "type":"com.azp.core.sys.model.UserPointStatistics" }
+      ],
+      "results":[
+        { "name":"resultEntity", "type":"com.azp.core.sys.model.UserPointStatistics" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_USER_POINT_STATISTICS_CREATE", "condition":"true" },
+    { "source":"FLOW_NODE_USER_POINT_STATISTICS_CREATE", "target":"end", "condition":"true" }
+  ]
+}

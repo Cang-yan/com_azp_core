@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_POINT_EXCHANGE_RETRIEVE_FILTER_MAP_LIST",
+  "type":"flow",
+  "title":"通过过滤器获取【积分兑换管理】简要列表",
+  "params":[
+    { "name":"filterMapper", "type":"com.azp.core.sys.model.PointExchangeFilterMapper" }
+  ],
+  "results":[
+    { "name":"pointExchangeDetailMapList", "type":"List" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_POINT_EXCHANGE_RETRIEVE_FILTER_MAP_LIST",
+      "type":"event",
+      "reference":"FLOW_CODE_POINT_EXCHANGE_RETRIEVE_FILTER_MAP_LIST",
+      "params":[
+        { "name":"filterMapper", "type":"com.azp.core.sys.model.PointExchangeFilterMapper" }
+      ],
+      "results":[
+        { "name":"pointExchangeDetailMapList", "type":"List" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_POINT_EXCHANGE_RETRIEVE_FILTER_MAP_LIST", "condition":"true" },
+    { "source":"FLOW_NODE_POINT_EXCHANGE_RETRIEVE_FILTER_MAP_LIST", "target":"end", "condition":"true" }
+  ]
+}

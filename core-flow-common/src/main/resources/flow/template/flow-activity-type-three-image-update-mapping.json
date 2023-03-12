@@ -1,0 +1,28 @@
+{
+  "id":"FLOW_ACTIVITY_TYPE_THREE_IMAGE_UPDATE_MAPPING",
+  "type":"flow",
+  "title":"通过Mapping创建实体【活动类型3图片管理】",
+  "params":[
+    { "name":"updateMapper", "type":"com.azp.core.sys.model.ActivityTypeThreeImageUpdateMapper" }
+  ],
+  "results":[
+    { "name":"resultMapper", "type":"com.azp.core.sys.model.ActivityTypeThreeImageUpdateMapper" }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ACTIVITY_TYPE_THREE_IMAGE_UPDATE_MAPPING",
+      "type":"event",
+      "reference":"FLOW_CODE_ACTIVITY_TYPE_THREE_IMAGE_UPDATE_MAPPING",
+      "params":[
+        { "name":"updateMapper", "type":"com.azp.core.sys.model.ActivityTypeThreeImageUpdateMapper" }
+      ],
+      "results":[
+        { "name":"resultMapper", "type":"com.azp.core.sys.model.ActivityTypeThreeImageUpdateMapper" }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ACTIVITY_TYPE_THREE_IMAGE_UPDATE_MAPPING", "condition":"true" },
+    { "source":"FLOW_NODE_ACTIVITY_TYPE_THREE_IMAGE_UPDATE_MAPPING", "target":"end", "condition":"true" }
+  ]
+}
